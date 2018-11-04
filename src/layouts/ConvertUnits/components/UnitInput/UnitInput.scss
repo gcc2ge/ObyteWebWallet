@@ -1,0 +1,31 @@
+@import '~@/scss/GlobalVariables';
+
+.wrap {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 4fr 1fr 4fr;
+}
+
+select,
+input {
+  background-color: white;
+  border: 0;
+  border-radius: 4px;
+  height: 46px;
+  padding: 13px 13px;
+  width: 100%;
+}
+
+select {
+  margin: 0;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.select-block {
+  position: relative;
+}
+
+.block-center {
+  text-align: center;
+}
