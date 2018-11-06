@@ -157,9 +157,12 @@ export default {
       this.localGas = newVal;
     }
   },
-  mounted() {
+  async mounted() {
+    const rawBalance = await this.$store.state.web3.eth.getBalance(
+      this.$store.state.wallet.getAddressString()
+    );
     this.parsedBalance = unit.fromWei(
-      this.$store.state.account.balance.result,
+      this.$store.state.web3.utils.toBN(rawBalance).toString(),
       'ether'
     );
   },
