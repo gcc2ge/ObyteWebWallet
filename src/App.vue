@@ -3,7 +3,7 @@
     <header-container/>
     <router-view/>
     <!--<footer-container/>-->
-    <!--<confirmation-container/>-->
+    <confirmation-container/>
   </div>
 </template>
 
