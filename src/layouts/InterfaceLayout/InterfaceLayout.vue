@@ -20,14 +20,14 @@
           <router-view
             :tokens-with-balance="tokensWithBalance"
             :get-balance="getBalance"/>
-          <div
+          <!--<div
             v-if="$store.state.online"
             class="tokens">
             <interface-tokens
               :get-token-balance="getTokenBalance"
               :tokens="tokens"
               :received-tokens="receivedTokens"/>
-          </div>
+          </div>-->
         </div>
       </div>
     </div>
