@@ -47,10 +47,10 @@ export default class Web3WalletAdapter {
 
   getAddressString() {
     const address = this.wallet.getAddress();
-    if (typeof address !== 'string') {
-      const rawAddress = '0x' + address.toString('hex');
-      return ethUtil.toChecksumAddress(rawAddress);
-    }
+    // if (typeof address !== 'string') {
+    //   const rawAddress = '0x' + address.toString('hex');
+    //   return ethUtil.toChecksumAddress(rawAddress);
+    // }
     return address;
   }
 

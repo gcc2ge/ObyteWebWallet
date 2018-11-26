@@ -46,7 +46,7 @@ const createAndSignTx = function({ commit }, val) {
 const decryptWallet = function({ commit, state, dispatch }, wallet) {
   const wrappedWallet = new WalletWrapper(wallet);
   const _web3 = state.web3;
-  override(_web3, wrappedWallet, this._vm.$eventHub, { state, dispatch });
+  // override(_web3, wrappedWallet, this._vm.$eventHub, { state, dispatch });
   commit('DECRYPT_WALLET', wrappedWallet);
   commit('SET_WEB3_INSTANCE', _web3);
 };

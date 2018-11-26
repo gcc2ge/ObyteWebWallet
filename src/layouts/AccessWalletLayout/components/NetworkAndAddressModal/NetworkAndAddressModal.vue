@@ -139,225 +139,226 @@
 </template>
 
 <script>
-import CustomerSupport from '@/components/CustomerSupport';
-import * as unit from 'ethjs-unit';
+  import CustomerSupport from '@/components/CustomerSupport';
+  import * as unit from 'ethjs-unit';
 
-export default {
-  components: {
-    'customer-support': CustomerSupport
-  },
-  props: {
-    hardwareWallet: {
-      type: Object,
-      default: function() {
-        return {};
+  export default {
+    components: {
+      'customer-support': CustomerSupport
+    },
+    props: {
+      hardwareWallet: {
+        type: Object,
+        default: function () {
+          return {};
+        }
       }
-    }
-  },
-  data() {
-    return {
-      selectedId: '',
-      accessMyWalletBtnDisabled: true,
-      walletUnlocked: false,
-      connectionActive: false,
-      offset: 0,
-      count: 5,
-      currentIndex: 0,
-      maxIndex: 0,
-      hardwareAddresses: [],
-      displayAddresses: [],
-      availablePaths: {},
-      customPaths: {},
-      selecteDPath: '',
-      invalidPath: '',
-      customPathInput: false,
-      customPath: { label: '', dpath: '' }
-    };
-  },
-  computed: {
-    orderedAddresses() {
-      const addressSet = [...this.displayAddresses];
-      addressSet.sort(this.comparator);
-      return addressSet.sort(this.comparator);
-    }
-  },
-  watch: {
-    hardwareWallet() {
-      this.getPaths();
-      this.getAddresses(this.count, this.offset).then(addressSet => {
-        this.displayAddresses = addressSet;
+    },
+    data() {
+      return {
+        selectedId: '',
+        accessMyWalletBtnDisabled: true,
+        walletUnlocked: false,
+        connectionActive: false,
+        offset: 0,
+        count: 5,
+        currentIndex: 0,
+        maxIndex: 0,
+        hardwareAddresses: [],
+        displayAddresses: [],
+        availablePaths: {},
+        customPaths: {},
+        selecteDPath: '',
+        invalidPath: '',
+        customPathInput: false,
+        customPath: {label: '', dpath: ''}
+      };
+    },
+    computed: {
+      orderedAddresses() {
+        const addressSet = [...this.displayAddresses];
+        addressSet.sort(this.comparator);
+        return addressSet.sort(this.comparator);
+      }
+    },
+    watch: {
+      hardwareWallet() {
+        this.getPaths();
+        this.getAddresses(this.count, this.offset).then(addressSet => {
+          this.displayAddresses = addressSet;
+        });
+      }
+    },
+    mounted() {
+      // reset component values when modal becomes hidden
+      this.$refs.networkAndAddress.$on('hidden', () => {
+        this.$refs.accessMyWalletBtn.checked = false;
+        this.accessMyWalletBtnDisabled = true;
+        this.walletUnlocked = false;
+        this.availablePaths = {};
+        this.selecteDPath = '';
+        this.invalidPath = '';
+        this.customPathInput = false;
+        this.customPath = {label: '', dpath: ''};
+        this.resetPaginationValues();
       });
-    }
-  },
-  mounted() {
-    // reset component values when modal becomes hidden
-    this.$refs.networkAndAddress.$on('hidden', () => {
-      this.$refs.accessMyWalletBtn.checked = false;
-      this.accessMyWalletBtnDisabled = true;
-      this.walletUnlocked = false;
-      this.availablePaths = {};
-      this.selecteDPath = '';
-      this.invalidPath = '';
-      this.customPathInput = false;
-      this.customPath = { label: '', dpath: '' };
-      this.resetPaginationValues();
-    });
-  },
-  methods: {
-    comparator(a, b) {
-      a = a.index + 1;
-      b = b.index + 1;
-      return a < b ? -1 : a > b ? 1 : 0;
     },
-    unselectAllAddresses: function(selected) {
-      document
-        .querySelectorAll('.user-input-checkbox input')
-        .forEach(function(el) {
-          el.checked = el.id === selected;
-        });
-    },
-    resetPaginationValues() {
-      this.offset = 0;
-      this.count = 5;
-      this.currentIndex = 0;
-      this.maxIndex = 0;
-      this.displayAddresses = [];
-      this.hardwareAddresses = [];
-    },
-    showCustomPathInput() {
-      this.customPath = { label: '', dpath: '' };
-      this.customPathInput = !this.customPathInput;
-    },
-    addCustomPath() {
-      // TODO: figure out a more precise regex
-      // eslint-disable-next-line no-useless-escape
-      const regExp = /^\w+\/\d+'\/\d+'\/\d+'/;
-      if (regExp.test(this.customPath.dpath)) {
-        this.$store.dispatch('addCustomPath', this.customPath).then(() => {
-          this.getPaths();
-        });
-        this.showCustomPathInput(); // reset the path input
-      } else {
-        // TODO: add indication of an invalid path
-      }
-    },
-    selectDPath(key) {
-      // rectify with content above
-      this.customPathInput = false;
-      this.resetPaginationValues();
-      this.hardwareWallet
-        .changeDerivationPath(this.availablePaths[key].dpath)
-        .then(() => {
-          this.selecteDPath = this.availablePaths[key];
-          this.invalidPath = '';
-          this.getAddresses().then(addressSet => {
+    methods: {
+      comparator(a, b) {
+        a = a.index + 1;
+        b = b.index + 1;
+        return a < b ? -1 : a > b ? 1 : 0;
+      },
+      unselectAllAddresses: function (selected) {
+        document
+          .querySelectorAll('.user-input-checkbox input')
+          .forEach(function (el) {
+            el.checked = el.id === selected;
+          });
+      },
+      resetPaginationValues() {
+        this.offset = 0;
+        this.count = 5;
+        this.currentIndex = 0;
+        this.maxIndex = 0;
+        this.displayAddresses = [];
+        this.hardwareAddresses = [];
+      },
+      showCustomPathInput() {
+        this.customPath = {label: '', dpath: ''};
+        this.customPathInput = !this.customPathInput;
+      },
+      addCustomPath() {
+        // TODO: figure out a more precise regex
+        // eslint-disable-next-line no-useless-escape
+        const regExp = /^\w+\/\d+'\/\d+'\/\d+'/;
+        if (regExp.test(this.customPath.dpath)) {
+          this.$store.dispatch('addCustomPath', this.customPath).then(() => {
+            this.getPaths();
+          });
+          this.showCustomPathInput(); // reset the path input
+        } else {
+          // TODO: add indication of an invalid path
+        }
+      },
+      selectDPath(key) {
+        // rectify with content above
+        this.customPathInput = false;
+        this.resetPaginationValues();
+        this.hardwareWallet
+          .changeDerivationPath(this.availablePaths[key].dpath)
+          .then(() => {
+            this.selecteDPath = this.availablePaths[key];
+            this.invalidPath = '';
+            this.getAddresses().then(addressSet => {
+              this.displayAddresses = addressSet;
+            });
+          })
+          .catch(_error => {
+            // If not a valid path Inform the user
+            this.invalidPath = this.availablePaths[key].dpath;
+            // eslint-disable-next-line no-console
+            console.error(_error);
+          });
+      },
+      unlockWallet() {
+        this.$store.dispatch('decryptWallet', this.hardwareWallet);
+        this.$router.push({path: 'interface'});
+      },
+      setAddress(details, element) {
+        this.selectedId = element;
+        this.unselectAllAddresses(element);
+        this.hardwareWallet.setActiveAddress(details.address, details.index);
+      },
+      priorAddressSet() {
+        this.selectedId = '';
+        if (this.currentIndex - this.count > 0) {
+          this.currentIndex = this.currentIndex - this.count;
+          this.displayAddresses = this.hardwareAddresses.slice(
+            this.currentIndex - this.count,
+            this.currentIndex
+          );
+        } else {
+          this.offset = 0;
+          this.currentIndex = 0;
+          this.displayAddresses = this.hardwareAddresses.slice(0, 5);
+        }
+      },
+      nextAddressSet() {
+        this.selectedId = '';
+        if (this.currentIndex + this.count < this.maxIndex) {
+          this.currentIndex = this.currentIndex + this.count;
+          this.displayAddresses = this.hardwareAddresses.slice(
+            this.currentIndex,
+            this.currentIndex + this.count
+          );
+        } else if (this.currentIndex + this.count === this.maxIndex) {
+          this.currentIndex = this.currentIndex + this.count;
+          this.getAddresses(this.count, this.currentIndex).then(addressSet => {
             this.displayAddresses = addressSet;
           });
-        })
-        .catch(_error => {
-          // If not a valid path Inform the user
-          this.invalidPath = this.availablePaths[key].dpath;
-          // eslint-disable-next-line no-console
-          console.error(_error);
-        });
-    },
-    unlockWallet() {
-      this.$store.dispatch('decryptWallet', this.hardwareWallet);
-      this.$router.push({ path: 'interface' });
-    },
-    setAddress(details, element) {
-      this.selectedId = element;
-      this.unselectAllAddresses(element);
-      this.hardwareWallet.setActiveAddress(details.address, details.index);
-    },
-    priorAddressSet() {
-      this.selectedId = '';
-      if (this.currentIndex - this.count > 0) {
-        this.currentIndex = this.currentIndex - this.count;
-        this.displayAddresses = this.hardwareAddresses.slice(
-          this.currentIndex - this.count,
-          this.currentIndex
-        );
-      } else {
-        this.offset = 0;
-        this.currentIndex = 0;
-        this.displayAddresses = this.hardwareAddresses.slice(0, 5);
-      }
-    },
-    nextAddressSet() {
-      this.selectedId = '';
-      if (this.currentIndex + this.count < this.maxIndex) {
-        this.currentIndex = this.currentIndex + this.count;
-        this.displayAddresses = this.hardwareAddresses.slice(
-          this.currentIndex,
-          this.currentIndex + this.count
-        );
-      } else if (this.currentIndex + this.count === this.maxIndex) {
-        this.currentIndex = this.currentIndex + this.count;
-        this.getAddresses(this.count, this.currentIndex).then(addressSet => {
-          this.displayAddresses = addressSet;
-        });
-      } else {
-        this.getAddresses(this.count, this.currentIndex).then(addressSet => {
-          this.displayAddresses = addressSet;
-        });
-      }
-    },
-    getAddresses(count = 5, offset = 0) {
-      return new Promise((resolve, reject) => {
-        if (offset + count > this.maxIndex) {
-          this.connectionActive = !this.connectionActive;
-          const web3 = this.$store.state.web3;
-          const hardwareAddresses = [];
-          this.hardwareWallet
-            .getMultipleAccounts(count, offset)
-            .then(_accounts => {
-              Object.values(_accounts).forEach(async (address, i) => {
-                const rawBalance = await this.$store.state.web3.eth.getBalance(
-                  address
-                );
-                const balance = unit.fromWei(
-                  web3.utils.toBN(rawBalance).toString(),
-                  'ether'
-                );
-                hardwareAddresses.push({ index: offset + i, address, balance });
-                this.hardwareAddresses.push({
-                  index: offset + i,
-                  address,
-                  balance
-                });
-              });
-              this.maxIndex = offset + count;
-              this.currentIndex = offset + count;
-              this.connectionActive = !this.connectionActive;
-              resolve(hardwareAddresses);
-            })
-            .catch(error => {
-              // eslint-disable-next-line no-console
-              console.error(error);
-              reject(error);
-            });
+        } else {
+          this.getAddresses(this.count, this.currentIndex).then(addressSet => {
+            this.displayAddresses = addressSet;
+          });
         }
-      });
-    },
-    getPaths() {
-      this.selecteDPath = this.hardwareWallet.getDerivationPath();
-      // nodes
-      this.availablePaths = {
-        ...this.hardwareWallet.compatibleChains
-      };
-      this.customPaths = {
-        ...this.$store.state.customPaths
-      };
+      },
+      getAddresses(count = 5, offset = 0) {
+        return new Promise((resolve, reject) => {
+          if (offset + count > this.maxIndex) {
+            this.connectionActive = !this.connectionActive;
+            const web3 = this.$store.state.web3;
+            const hardwareAddresses = [];
+            this.hardwareWallet
+              .getMultipleAccounts(count, offset)
+              .then(_accounts => {
+                Object.values(_accounts).forEach(async (address, i) => {
+//                const rawBalance = await this.$store.state.web3.eth.getBalance(
+//                  address
+//                );
+//                const balance = unit.fromWei(
+//                  web3.utils.toBN(rawBalance).toString(),
+//                  'ether'
+//                );
+                  var balance = 0;
+                  hardwareAddresses.push({index: offset + i, address, balance});
+                  this.hardwareAddresses.push({
+                    index: offset + i,
+                    address,
+                    balance
+                  });
+                });
+                this.maxIndex = offset + count;
+                this.currentIndex = offset + count;
+                this.connectionActive = !this.connectionActive;
+                resolve(hardwareAddresses);
+              })
+              .catch(error => {
+                // eslint-disable-next-line no-console
+                console.error(error);
+                reject(error);
+              });
+          }
+        });
+      },
+      getPaths() {
+        this.selecteDPath = this.hardwareWallet.getDerivationPath();
+        // nodes
+        this.availablePaths = {
+          ...this.hardwareWallet.compatibleChains
+        };
+        this.customPaths = {
+          ...this.$store.state.customPaths
+        };
+      }
     }
-  }
-};
+  };
 </script>
 
 <style lang="scss" scoped>
-@import 'NetworkAndAddressModal.scss';
+  @import 'NetworkAndAddressModal.scss';
 
-.activeConn {
-  color: gray;
-}
+  .activeConn {
+    color: gray;
+  }
 </style>

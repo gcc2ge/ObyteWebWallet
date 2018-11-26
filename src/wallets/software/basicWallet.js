@@ -2,6 +2,7 @@ import * as utils from 'web3-utils';
 import * as ethUtil from 'ethereumjs-util';
 import EthereumTx from 'ethereumjs-tx';
 import EthereumWallet from 'ethereumjs-wallet';
+import  ByteBallWallet from 'bbwallet/wallet'
 
 import * as crypto from 'crypto';
 
@@ -190,8 +191,8 @@ export default class BasicWallet {
           );
           break;
         }
-        case 'manualPrivateKey': {
-          if (typeof options.manualPrivateKey === 'object')
+        case 'manualPrivateKey': { //私钥
+          /*if (typeof options.manualPrivateKey === 'object')
             throw new Error('Supplied Private Key Must Be A String');
 
           // eslint-disable-next-line
@@ -213,10 +214,11 @@ export default class BasicWallet {
             this.wallet = BasicWallet.createWallet(
               this.fixPkey(options.manualPrivateKey)
             );
-          }
+          }*/
+          this.wallet = ByteBallWallet.fromPrivateKey(options.manualPrivateKey);
           break;
         }
-        case 'fromPrivateKeyFile': {
+        case 'fromPrivateKeyFile': { // json 文件
           this.wallet = this.getWalletFromPrivKeyFile(
             options.fileContent,
             options.filePassword

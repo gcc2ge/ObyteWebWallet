@@ -2,11 +2,8 @@ import { Wallet, Configs } from '@/helpers';
 
 function create(password) {
   const createdWallet = {};
-  const wallet = new Wallet.generate();
-  createdWallet.walletJson = wallet.toV3(password, {
-    kdf: Configs.wallet.kdf,
-    n: Configs.wallet.n
-  });
+  const wallet =  Wallet.generate();
+  createdWallet.walletJson = wallet.export(password);
   createdWallet.name = wallet.getV3Filename();
   return createdWallet;
 }

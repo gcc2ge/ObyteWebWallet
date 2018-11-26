@@ -37,7 +37,8 @@
 
 <script>
 import { BasicWallet } from '@/wallets';
-import Worker from 'worker-loader!@/workers/unlockWallet.worker.js';
+//import Worker from 'worker-loader!@/workers/unlockWallet.worker.js';
+import { Wallet } from '@/helpers';
 export default {
   props: {
     file: {
@@ -61,26 +62,37 @@ export default {
   },
   methods: {
     unlockWallet() {
-      const worker = new Worker();
+//      const worker = new Worker();
       const self = this;
-      worker.postMessage({
+      var wallet =Wallet.import(this.file, this.password);
+      self.$store.dispatch(
+        'decryptWallet',
+        BasicWallet.unlock({
+          type: 'manualPrivateKey',
+          manualPrivateKey: wallet._privKey.xprivkey
+        })
+      );
+      self.$router.push({ path: 'interface' });
+      /*worker.postMessage({
         type: 'unlockWallet',
         data: [this.file, this.password]
       });
       worker.onmessage = function(e) {
+        console.info(`e: ${JSON.stringify(e)}`)
         // Regenerate the wallet since the worker only return an object instance. Not the whole wallet instance
         self.$store.dispatch(
           'decryptWallet',
           BasicWallet.unlock({
             type: 'manualPrivateKey',
-            manualPrivateKey: Buffer.from(e.data._privKey).toString('hex')
+            manualPrivateKey: e.data._privKey
+//            manualPrivateKey: Buffer.from(e.data._privKey).toString('hex')
           })
         );
         self.$router.push({ path: 'interface' });
       };
       worker.onerror = function(e) {
-        self.error = e.message;
-      };
+        self.error = JSON.stringify(e);
+      };*/
     },
     switchViewPassword() {
       this.show = !this.show;

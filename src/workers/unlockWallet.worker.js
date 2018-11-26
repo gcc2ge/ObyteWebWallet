@@ -6,12 +6,12 @@ function unlock(file, password) {
   Object.keys(file).forEach(key => {
     newFile[key.toLowerCase()] = file[key];
   });
-  return Wallet.fromV3(newFile, password, true);
+  return Wallet.import(newFile, password);
 }
 
 onmessage = function(event) {
   if (event.data.type === 'unlockWallet') {
     const workerResult = unlock(event.data.data[0], event.data.data[1]);
-    postMessage(workerResult);
+    postMessage({"a":"b"});
   }
 };

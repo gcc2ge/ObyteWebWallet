@@ -2,8 +2,11 @@ import EthereumjsTx from 'ethereumjs-tx';
 import * as ethUtil from 'ethereumjs-util';
 import * as HDKey from 'hdkey';
 import HardwareWalletInterface from './hardwareWallet-interface';
-import { getDerivationPath, paths } from './deterministicWalletPaths';
+import {getDerivationPath, paths} from './deterministicWalletPaths';
 import * as bip39 from 'bip39';
+
+import * as Utils from 'bbwallet/utils'
+import BB_Mnemonic from 'bitcore-mnemonic'
 
 let phrase = '';
 let pass = '';
@@ -140,6 +143,18 @@ export default class MnemonicWallet extends HardwareWalletInterface {
 
   decryptWallet(options) {
     try {
+      if (!BB_Mnemonic.isValid(options.mnemonicPhrase)) {
+        throw new Error('Invalid Mnemonic Supplied');
+      }
+      this.phrase = options.mnemonicPhrase;
+      this.password = options.mnemonicPassword;
+      var m = new BB_Mnemonic(options.mnemonicPhrase);
+      this.hdk = m.toHDPrivateKey(options.mnemonicPassword, 'livenet');
+      this.setHDAddresses();
+    } catch (e) {
+      throw  e;
+    }
+    /*try {
       if (!bip39.validateMnemonic(options.mnemonicPhrase))
         throw new Error('Invalid Mnemonic Supplied');
       this.phrase = options.mnemonicPhrase;
@@ -153,13 +168,13 @@ export default class MnemonicWallet extends HardwareWalletInterface {
       this.setHDAddresses();
     } catch (e) {
       throw e;
-    }
+    }*/
   }
 
   createWallet(priv, pub, path, hwType, hwTransport) {
     const wallet = {};
     if (typeof priv !== 'undefined') {
-      wallet.privKey = priv.length === 32 ? priv : Buffer.from(priv, 'hex');
+      wallet.privKey = priv;
     }
     wallet.pubKey = pub;
     wallet.path = path;
@@ -168,6 +183,7 @@ export default class MnemonicWallet extends HardwareWalletInterface {
     wallet.type = this.brand;
     return wallet;
   }
+
   // (End) Internal setup methods
 
   AddRemoveHDAddresses(isAdd) {
@@ -211,11 +227,11 @@ export default class MnemonicWallet extends HardwareWalletInterface {
     this.walletsRetrieved = [];
     for (let i = start; i < start + limit; i++) {
       const tempWallet = this.createWallet(
-        this.hdk.derive(this.path + '/' + i)._privateKey
+        this.hdk.derive(this.path + '/' + i + "'")
       );
       this.addressToWalletMap[
         this._getAddressForWallet(tempWallet)
-      ] = tempWallet;
+        ] = tempWallet;
       this.walletsRetrieved.push(tempWallet);
       this.addressesToIndexMap[i] = this._getAddressForWallet(tempWallet);
       this.walletsRetrieved[this.walletsRetrieved.length - 1].type =
@@ -280,9 +296,9 @@ export default class MnemonicWallet extends HardwareWalletInterface {
   // (Start) Internal utility methods
   _getAddressForWallet(wallet) {
     if (typeof wallet.pubKey === 'undefined') {
-      return '0x' + ethUtil.privateToAddress(wallet.privKey).toString('hex');
+      return Utils.privateToAddress(wallet.privKey);
     }
-    return '0x' + ethUtil.publicToAddress(wallet.pubKey, true).toString('hex');
+    return Utils.Address(wallet.pubKey);
   }
 
   // (End) Internal utility methods
