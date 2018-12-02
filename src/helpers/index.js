@@ -1,4 +1,5 @@
-import Wallet from '@/bbwallet/wallet';
+// import Wallet from 'ethereumjs-wallet';
+import  Wallet from 'bbwallet/wallet';
 import parseTokensHex from './parseTokensHex';
 import Configs from './configs';
 import Blockies from './blockies';

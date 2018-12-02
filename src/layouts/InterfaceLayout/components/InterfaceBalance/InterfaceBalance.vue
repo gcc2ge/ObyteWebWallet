@@ -1,7 +1,8 @@
 <template>
   <div>
     <interface-balance-modal :balance="balance"/>
-    <div @click="balanceModalOpen">
+    <!--<div @click="balanceModalOpen">-->
+    <div>
       <div class="info-block balance">
         <div class="block-image">
           <img
@@ -14,7 +15,7 @@
             <div class="balance-text-container">
               <div
                 v-show="balance !== undefined"
-                class="balance-text"> <p>{{ balance }}</p> <p>&nbsp;ETH</p></div>
+                class="balance-text"> <p>{{ balance }}</p> <p>&nbsp;MBytes</p></div>
               <i
                 v-show="balance === undefined"
                 class="fa fa-spin fa-spinner"/>

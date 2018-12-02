@@ -14,8 +14,9 @@ import ConfirmationContainer from '@/containers/ConfirmationContainer';
 import store from 'store';
 import nodeList from '@/networks';
 import Web3 from 'web3';
-import ENS from 'ethereum-ens';
+//import ENS from 'ethereum-ens';
 import url from 'url';
+import byteball from 'byteball';
 
 export default {
   name: 'App',
@@ -29,13 +30,19 @@ export default {
     const network =
       store.get('network') !== undefined
         ? store.get('network')
-        : this.$store.state.Networks['ETH'][3];
+        : this.$store.state.Networks['LIVENET'];
     const hostUrl = url.parse(network.url);
-    const newWeb3 = new Web3(
-      `${hostUrl.protocol}//${hostUrl.hostname}:${network.port}${
+//    const newWeb3 = new Web3(
+//      `${hostUrl.protocol}//${hostUrl.hostname}:${network.port}${
+//        hostUrl.pathname
+//      }`
+//    );
+    /*const newClient=new byteball.Client(
+      `${hostUrl.protocol}//${hostUrl.hostname}${
         hostUrl.pathname
-      }`
-    );
+      }`, true);*/
+    const newClient=new byteball.Client(
+      'wss://byteball.org/bb-test', true);
     const notifications =
       store.get('notifications') !== undefined
         ? store.get('notifications')
@@ -43,7 +50,8 @@ export default {
     const gasPrice =
       store.get('gasPrice') !== undefined ? store.get('gasPrice') : 41;
     const state = {
-      web3: newWeb3,
+//      web3: newWeb3,
+      client:newClient,
       network: network,
       customPaths:
         store.get('customPaths') !== undefined ? store.get('customPaths') : {},
@@ -57,8 +65,8 @@ export default {
       online: true,
       notifications: notifications,
       gasPrice: gasPrice,
-      ens:
-        network.type.ensResolver !== '' ? new ENS(newWeb3.currentProvider) : {}
+//      ens:
+//        network.type.ensResolver !== '' ? new ENS(newWeb3.currentProvider) : {}
     };
     if (store.get('notifications') === undefined)
       store.set('notifications', {});

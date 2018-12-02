@@ -193,7 +193,7 @@ export default {
   data() {
     return {
       types: networkTypes,
-      selectedNetwork: networkTypes.ETH,
+      selectedNetwork: networkTypes.LIVENET,
       chainID: '',
       port: '',
       name: '',

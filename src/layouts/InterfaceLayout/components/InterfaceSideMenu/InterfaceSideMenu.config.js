@@ -33,7 +33,7 @@ export default {
         }
       ]
     },
-    {
+    /*{
       name: 'swap',
       routes: ['/interface/swap'],
       icons: {
@@ -42,7 +42,7 @@ export default {
       },
       titleKey: 'common.swap',
       children: []
-    },
+    },*/
     {
       name: 'dapps',
       routes: [
@@ -63,7 +63,7 @@ export default {
       titleKey: 'common.dapps',
       children: []
     },
-    {
+    /*{
       name: 'contracts',
       routes: [
         '/interface/interact-with-contract',
@@ -94,8 +94,8 @@ export default {
           titleKey: 'common.depContract'
         }
       ]
-    },
-    {
+    },*/
+    /*{
       name: 'messages',
       routes: ['/interface/sign-message', '/interface/verify-message'],
       icons: {
@@ -123,6 +123,6 @@ export default {
           titleKey: 'common.verifyMessage'
         }
       ]
-    }
+    }*/
   ]
 };

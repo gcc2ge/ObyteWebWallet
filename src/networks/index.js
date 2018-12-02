@@ -8,11 +8,11 @@ Object.keys(types).forEach(key => {
 });
 
 Object.keys(nodes).forEach(key => {
-  if (nodes[key].service === nodes['ethmew'].service) {
-    nodeList[nodes[key].type.name].splice(0, 0, nodes[key]);
-  } else {
+  // if (nodes[key].service === nodes['ethmew'].service) {
+  //   nodeList[nodes[key].type.name].splice(0, 0, nodes[key]);
+  // } else {
     nodeList[nodes[key].type.name].push(nodes[key]);
-  }
+  // }
 });
 
 export default nodeList;

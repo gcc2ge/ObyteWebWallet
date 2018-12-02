@@ -1,19 +1,20 @@
 import nodeList from '@/networks';
 const state = {
   web3: {},
+  client:{},
   network: {
     auth: false,
     password: '',
-    port: 443,
-    service: 'myetherwallet.com',
+    port: 80,
+    service: 'byteball.org/bb-test',
     type: {
       blockExplorerAddr: 'https://ropsten.etherscan.io/address/[[txHash]]',
       blockExplorerTX: 'https://ropsten.etherscan.io/tx/[[txHash]]',
       chainID: 3,
       contracts: [],
       homePage: 'https://github.com/ethereum/ropsten',
-      name: 'ROP',
-      name_long: 'Ropsten',
+      name: 'LIVENET',
+      name_long: 'livenet',
       tokens: []
     },
     url: 'https://api.myetherwallet.com/rop',
