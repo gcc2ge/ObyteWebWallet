@@ -82,7 +82,7 @@ export default {
       parsedBalance: 0,
       toAddress: '',
       transactionFee: 0,
-      selectedCurrency: { symbol: 'ETH', name: 'Ethereum' },
+      selectedCurrency: { symbol: 'MB', name: 'mega' },
       raw: {},
       ens: {},
       signer: {},
@@ -154,9 +154,9 @@ export default {
       'showTxConfirmModal',
       (tx, isHardware, signer, resolve) => {
         this.parseRawTx(tx);
-        if (tx.hasOwnProperty('ensObj')) {
-          delete tx['ensObj'];
-        }
+//        if (tx.hasOwnProperty('ensObj')) {
+//          delete tx['ensObj'];
+//        }
         this.isHardwareWallet = isHardware;
         this.responseFunction = resolve;
         this.successMessage = 'Sending Transaction';
@@ -230,19 +230,20 @@ export default {
     },
     parseRawTx(tx) {
       this.raw = tx;
-      this.nonce = +tx.nonce;
-      this.data = tx.data;
-      this.gasLimit = +tx.gas;
-      this.toAddress = tx.to;
-      this.amount = +tx.value;
-      this.transactionFee = Number(
-        unit.fromWei(new BN(tx.gasPrice).times(tx.gas).toString(), 'ether')
-      );
-      this.ens = {};
-      if (tx.hasOwnProperty('ensObj')) {
-        this.ens = Object.assign({}, tx.ensObj);
-      }
-      // this.signedTx = this.signedTxObject.rawTransaction
+//      this.nonce = +tx.nonce;
+//      this.data = tx.data;
+//      this.gasLimit = +tx.gas;
+      this.toAddress = tx["outputs"][0].address;
+      this.amount = +tx["outputs"][0].amount;
+//      this.transactionFee = Number(
+//        unit.fromWei(new BN(tx.gasPrice).times(tx.gas).toString(), 'ether')
+//      );
+//      this.ens = {};
+//      if (tx.hasOwnProperty('ensObj')) {
+//        this.ens = Object.assign({}, tx.ensObj);
+//      }
+       this.signedTx = this.signedTxObject.rawTransaction
+
     },
     messageReturn() {
       this.dismissed = false;
@@ -274,7 +275,7 @@ export default {
       this.parsedBalance = 0;
       this.toAddress = '';
       this.transactionFee = 0;
-      this.selectedCurrency = { symbol: 'ETH', name: 'Ethereum' };
+      this.selectedCurrency = { symbol: 'GB', name: 'Byteball' };
       this.raw = {};
       this.signedTx = '';
       this.messageToSign = '';

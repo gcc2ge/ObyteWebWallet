@@ -237,7 +237,7 @@ export default {
         if (this.customNetworks.length > 0) {
           this.switchNetwork(this.customNetworks[0]);
         } else {
-          this.switchNetwork(this.$store.state.Networks.ETH[0]);
+          this.switchNetwork(this.$store.state.Networks.LIVENET[0]);
         }
       }
       store.set('customNetworks', this.customNetworks);
@@ -295,7 +295,7 @@ export default {
     switchNetwork(network) {
       this.selectedNetwork = network;
       this.$store.dispatch('switchNetwork', network);
-      this.$store.dispatch('setWeb3Instance');
+      this.$store.dispatch('setClientInstance');
     }
   }
 };

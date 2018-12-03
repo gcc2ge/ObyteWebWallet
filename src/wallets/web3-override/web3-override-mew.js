@@ -1,16 +1,35 @@
 import * as unit from 'ethjs-unit';
 export default function web3OverrideMew(
-  web3,
+  client,
   wallet,
   eventHub,
   { state, dispatch }
 ) {
-  if (!wallet) return web3;
+  if (!wallet) return client;
 
   const methodOverrides = {
     signTransaction(tx) {
       return new Promise(resolve => {
-        if (tx.generateOnly) {
+        eventHub.$emit(
+          'showTxConfirmModal',
+          tx,
+          wallet.isHardware,
+          // wallet.signTransaction.bind(this),
+          function (tx) {
+            return new Promise((resolve, reject) => {
+              client.compose.payment(tx, "9386coYjDwLDGc8eEZiVLdieJtXdYwMRutqPcuJSQFBDSh8c75G", function (err, result) {
+                if (err) reject(err);
+                resolve({
+                  rawTransaction:JSON.stringify(result)
+                });
+              });
+            });
+          },
+          res => {
+            resolve(res);
+          }
+        );
+        /*if (tx.generateOnly) {
           delete tx['generateOnly'];
           eventHub.$emit(
             'showTxConfirmModal',
@@ -38,15 +57,23 @@ export default function web3OverrideMew(
             'showTxConfirmModal',
             tx,
             wallet.isHardware,
-            wallet.signTransaction.bind(this),
+            // wallet.signTransaction.bind(this),
+            function (tx) {
+              return new Promise((resolve, reject) => {
+                client.compose.payment(tx, "9386coYjDwLDGc8eEZiVLdieJtXdYwMRutqPcuJSQFBDSh8c75G", function (err, result) {
+                  if (err) reject(err);
+                  resolve(JSON.stringify(result));
+                });
+              });
+            },
             res => {
               resolve(res);
             }
           );
-        }
+        }*/
       });
     },
-    signMessage(message) {
+    /*signMessage(message) {
       return new Promise(resolve => {
         eventHub.$emit(
           'showMessageConfirmModal',
@@ -58,9 +85,12 @@ export default function web3OverrideMew(
           }
         );
       });
-    },
+    },*/
     async sendTransaction(tx) {
-      const localTx = Object.assign({}, tx);
+
+      //直接发送交易
+
+      /*const localTx = Object.assign({}, tx);
       delete localTx['gas'];
       delete localTx['nonce'];
 
@@ -83,11 +113,44 @@ export default function web3OverrideMew(
         })
         .on('error', err => {
           dispatch('addNotification', [tx.from, err, 'Transaction Error']);
-        });
+        });*/
+    },
+    async sendSignedTransaction(signedTx){
+      return new Promise((resolve, reject) => {
+        resolve()
+      });
     }
   };
-  web3.defaultAccount = wallet.getAddressString().toLowerCase();
-  web3.eth.defaultAccount = wallet.getAddressString().toLowerCase();
+  client.bb={};
+  client.defaultAccount = wallet.getAddressString().toLowerCase();
+  client.bb.defaultAccount = wallet.getAddressString().toLowerCase();
+  client.bb.isAddress = function (address) {
+    return new Promise((resolve, reject) => {
+      client.api.getDefinition(address, function(err, result) {
+        if (err) {
+          resolve(false);
+        }else{
+          if(result==null){
+            resolve(true);
+          }else{
+            resolve(false);
+          }
+        }
+      });
+    });
+  };
+  client.bb.getBalance= function (address) {
+    var arr=[address];
+    return new Promise((resolve,reject)=>{
+      client.api.getBalances(arr, function (err, result) {
+        if (err) {resolve(0)}
+        else{
+          var balance = result[address].base.stable;
+          resolve(balance);
+        }
+      });
+    });
+  };
   // web3.eth.sendTransaction.method.accounts = {
   //   wallet: {
   //     length: 1,
@@ -98,9 +161,10 @@ export default function web3OverrideMew(
   //   ...methodOverrides
   // };
 
-  web3.eth.signTransaction = methodOverrides.signTransaction;
-  web3.eth.sign = methodOverrides.signMessage;
-  web3.eth.sendTransaction_ = web3.eth.sendTransaction;
-  web3.eth.sendTransaction = methodOverrides.sendTransaction;
-  return web3; // needs to return web3 for use in vuex
+  client.bb.signTransaction = methodOverrides.signTransaction;
+  // web3.eth.sign = methodOverrides.signMessage;
+  // web3.eth.sendTransaction_ = web3.eth.sendTransaction;
+  client.bb.sendTransaction = methodOverrides.sendTransaction;
+  client.bb.sendSignedTransaction = methodOverrides.sendSignedTransaction;
+  return client; // needs to return web3 for use in vuex
 }

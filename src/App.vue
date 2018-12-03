@@ -30,25 +30,26 @@ export default {
     const network =
       store.get('network') !== undefined
         ? store.get('network')
-        : this.$store.state.Networks['LIVENET'];
+        : this.$store.state.Networks['LIVENET'][0];
     const hostUrl = url.parse(network.url);
 //    const newWeb3 = new Web3(
 //      `${hostUrl.protocol}//${hostUrl.hostname}:${network.port}${
 //        hostUrl.pathname
 //      }`
 //    );
-    /*const newClient=new byteball.Client(
+//    console.info(`${hostUrl.protocol}//${hostUrl.hostname}${
+//      hostUrl.pathname
+//      }`)
+    const newClient=new byteball.Client(
       `${hostUrl.protocol}//${hostUrl.hostname}${
         hostUrl.pathname
-      }`, true);*/
-    const newClient=new byteball.Client(
-      'wss://byteball.org/bb-test', true);
+        }`, true);
     const notifications =
       store.get('notifications') !== undefined
         ? store.get('notifications')
         : {};
-    const gasPrice =
-      store.get('gasPrice') !== undefined ? store.get('gasPrice') : 41;
+//    const gasPrice =
+//      store.get('gasPrice') !== undefined ? store.get('gasPrice') : 41;
     const state = {
 //      web3: newWeb3,
       client:newClient,
@@ -64,7 +65,7 @@ export default {
       Errors: {},
       online: true,
       notifications: notifications,
-      gasPrice: gasPrice,
+//      gasPrice: gasPrice,
 //      ens:
 //        network.type.ensResolver !== '' ? new ENS(newWeb3.currentProvider) : {}
     };

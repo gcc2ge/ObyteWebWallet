@@ -60,9 +60,9 @@
             <div class="grid-block">
               <p>Transaction Fee</p><p> {{ fee }} ETH</p>
             </div>
-            <div class="grid-block">
+            <!--<div class="grid-block">
               <p>Nonce</p><p>{{ nonce }}</p>
-            </div>
+            </div>-->
             <div class="grid-block">
               <p>Data</p><p>{{ data }}</p>
             </div>
@@ -78,7 +78,7 @@
                 @click="sendTx">
                 Confirm and Send
               </div>
-              <div class="tooltip-box-2">
+              <!--<div class="tooltip-box-2">
                 <b-btn id="exPopover9">
                   <img
                     class="icon"
@@ -98,7 +98,7 @@
                     <p class="qrcode-helper">What is that?</p>
                   </div>
                 </b-popover>
-              </div>
+              </div>-->
             </div>
           </div>
           <p class="learn-more">Have any issues? <a href="/">Learn more</a></p>
@@ -170,7 +170,7 @@ export default {
       unit,
       tokenTransferTo: '',
       tokenTransferVal: '',
-      tokenSymbol: ''
+      tokenSymbol: 'MB'
     };
   },
   computed: {
@@ -200,43 +200,7 @@ export default {
       }
     },
     async parseData(data) {
-      const web3 = this.$store.state.web3;
-      const networkToken = this.$store.state.network.type.tokens;
-      const tokenIndex = networkToken.findIndex(el => {
-        return el.address.toLowerCase() === this.to.toLowerCase();
-      });
 
-      const jsonInterface = {
-        constant: false,
-        inputs: [
-          { name: '_to', type: 'address' },
-          { name: '_amount', type: 'uint256' }
-        ],
-        name: 'transfer',
-        outputs: [{ name: '', type: 'bool' }],
-        payable: false,
-        stateMutability: 'nonpayable',
-        type: 'function'
-      };
-      const transferFuncSig = web3.eth.abi.encodeFunctionSignature(
-        jsonInterface
-      );
-      if (data.substr(0, 10) === transferFuncSig) {
-        const params = web3.eth.abi.decodeParameters(
-          ['address', 'uint256'],
-          `${data.substr(10)}`
-        );
-        const value = new BigNumber(params[1]);
-        this.tokenTransferTo = params[0];
-        this.tokenTransferVal =
-          tokenIndex !== -1
-            ? value
-                .div(new BigNumber(10).pow(networkToken[tokenIndex].decimals))
-                .toFixed()
-            : value;
-        this.tokenSymbol =
-          tokenIndex !== -1 ? networkToken[tokenIndex].symbol : 'Unknown Token';
-      }
     }
   }
 };

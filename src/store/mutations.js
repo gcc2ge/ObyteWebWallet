@@ -47,8 +47,8 @@ const SET_GAS_PRICE = function(state, val) {
 const SET_WEB3_PROVIDER_WALLET = function(state, wallet) {
   state.wallet = wallet;
 };
-const SET_WEB3_INSTANCE = function(state, web3) {
-  state.web3 = web3;
+const SET_CLIENT_INSTANCE = function(state, client) {
+  state.client = client;
 };
 
 const SWITCH_NETWORK = function(state, networkObj) {
@@ -72,7 +72,7 @@ export default {
   SET_GAS_PRICE,
   // SET_ENS,
   SET_WEB3_PROVIDER_WALLET,
-  SET_WEB3_INSTANCE,
+  SET_CLIENT_INSTANCE,
   SWITCH_NETWORK,
   UPDATE_NOTIFICATION
 };

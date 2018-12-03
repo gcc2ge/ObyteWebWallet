@@ -147,7 +147,7 @@
             console.error(err);
           });*/
       },
-      checkWeb3WalletAddrChange() {
+      /*checkWeb3WalletAddrChange() {
         this.pollAddress = setInterval(() => {
           window.web3.eth.getAccounts((err, accounts) => {
             if (err) {
@@ -171,8 +171,8 @@
             }
           });
         }, 500);
-      },
-      matchWeb3WalletNetwork() {
+      },*/
+     /* matchWeb3WalletNetwork() {
         this.pollNetwork = setInterval(() => {
           window.web3.version.getNetwork((err, netId) => {
             if (err) return;
@@ -189,7 +189,7 @@
             }
           });
         }, 500);
-      },
+      },*/
       clearIntervals() {
         const self = this;
         if (self.wallet === null) {

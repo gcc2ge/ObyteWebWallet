@@ -44,8 +44,8 @@ export default class MnemonicWallet extends HardwareWalletInterface {
 
     this.getAccounts = this.getAccounts.bind(this);
     this.getMultipleAccounts = this.getMultipleAccounts.bind(this);
-    this.signTransaction = this.signTransaction.bind(this);
-    this.signMessage = this.signMessage.bind(this);
+    // this.signTransaction = this.signTransaction.bind(this);
+    // this.signMessage = this.signMessage.bind(this);
 
     if (options) {
       this.decryptWallet(options);
@@ -110,14 +110,14 @@ export default class MnemonicWallet extends HardwareWalletInterface {
     return this._getAccounts(count, offset);
   }
 
-  signTransaction(txData) {
+  /*signTransaction(txData) {
     return this.signTxMnemonic(txData);
-  }
+  }*/
 
-  signMessage(msgData) {
+  /*signMessage(msgData) {
     const thisMessage = msgData.data ? msgData.data : msgData;
     return this.signMessageMnemonic(thisMessage);
-  }
+  }*/
 
   // ============== (End) Implementation of wallet usage methods ======================
 
@@ -241,7 +241,7 @@ export default class MnemonicWallet extends HardwareWalletInterface {
     this.numWallets = start + limit;
   }
 
-  async signTxMnemonic(rawTx) {
+  /*async signTxMnemonic(rawTx) {
     try {
       if (!this.wallet)
         throw new Error('no wallet present. wallet not have been decrypted');
@@ -269,9 +269,9 @@ export default class MnemonicWallet extends HardwareWalletInterface {
     } catch (e) {
       return e;
     }
-  }
+  }*/
 
-  async signMessageMnemonic(stringMessage) {
+  /*async signMessageMnemonic(stringMessage) {
     try {
       if (!this.wallet)
         throw new Error(
@@ -290,7 +290,7 @@ export default class MnemonicWallet extends HardwareWalletInterface {
     } catch (e) {
       return e;
     }
-  }
+  }*/
 
   // (End) Internal methods underlying wallet usage methods
   // (Start) Internal utility methods

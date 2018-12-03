@@ -20,6 +20,7 @@
 
 <script>
 import web3 from 'web3';
+import Utils from 'bitcore-wallet-client/lib/common/utils'
 export default {
   props: {
     address: {
@@ -36,7 +37,7 @@ export default {
     },
     currency: {
       type: String,
-      default: 'eth'
+      default: 'byteball'
     },
     tokenTransferTo: {
       type: String,
@@ -53,7 +54,8 @@ export default {
   },
   methods: {
     converter(num) {
-      return web3.utils.fromWei(num.toString(), 'ether');
+//      return web3.utils.fromWei(num.toString(), 'ether');
+      return Utils.formatAmount(num,"mega")
     }
   }
 };

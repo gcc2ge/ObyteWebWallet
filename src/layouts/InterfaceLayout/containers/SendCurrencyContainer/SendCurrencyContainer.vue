@@ -51,7 +51,6 @@
           </div>
           <div class="the-form address-block">
             <textarea
-              v-ens-resolver="address"
               ref="address"
               v-model="address"
               name="name"
@@ -255,12 +254,12 @@ export default {
     },
     async createTx() {
       const isEth = this.selectedCurrency.name === 'Ethereum';
-      this.nonce = await this.$store.state.web3.eth.getTransactionCount(
-        this.$store.state.wallet.getAddressString()
-      );
+//      this.nonce = await this.$store.state.web3.eth.getTransactionCount(
+//        this.$store.state.wallet.getAddressString()
+//      );
 
       this.raw = {
-        from: this.$store.state.wallet.getAddressString(),
+        /*from: this.$store.state.wallet.getAddressString(),
         gas: this.gasLimit,
         nonce: this.nonce,
         gasPrice: Number(unit.toWei(this.$store.state.gasPrice, 'gwei')),
@@ -271,7 +270,7 @@ export default {
           : 0,
         to: isEth ? this.address : this.selectedCurrency.addr,
         data: this.data,
-        chainId: this.$store.state.network.type.chainID || 1
+        chainId: this.$store.state.network.type.chainID || 1*/
       };
 
       if (this.address === '') {
@@ -282,7 +281,7 @@ export default {
         this.raw['web3WalletOnly'] = true;
       }
 
-      this.$store.state.web3.eth.sendTransaction(this.raw);
+      this.$store.state.client.bb.sendTransaction(this.raw);
     },
     confirmationModalOpen() {
       this.createTx();
@@ -342,31 +341,16 @@ export default {
       this.selectedCurrency = e;
     },
     estimateGas() {
-      const newRaw = this.raw;
-      delete newRaw['gas'];
-      delete newRaw['nonce'];
-      this.createDataHex();
-      this.$store.state.web3.eth
-        .estimateGas(newRaw)
-        .then(res => {
-          this.transactionFee = unit.fromWei(
-            unit.toWei(this.$store.state.gasPrice, 'gwei') * res,
-            'ether'
-          );
-          this.gasLimit = res;
-        })
-        .catch(err => {
-          // eslint-disable-next-line no-console
-          console.error(err);
-        });
+
     },
     verifyAddr() {
       if (this.address.length !== 0 && this.address !== '') {
-        const valid = this.$store.state.web3.utils.isAddress(this.address);
+       /* const valid = this.$store.state.web3.utils.isAddress(this.address);
         if (!valid) {
           return true;
         }
-        return false;
+        return false;*/
+       return false;
       }
     }
   }

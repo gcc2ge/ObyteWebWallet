@@ -30,7 +30,7 @@
           </div>
         </div>
       </div>
-      <tx-speed-input
+      <!--<tx-speed-input
         v-show="moreInfoGenerated"
         :nonce="nonce"
         :gas-limit="gasLimit"
@@ -44,7 +44,7 @@
           @click="generateInfo">
           Generate
         </div>
-      </div>
+      </div>-->
 
       <div
         v-if="moreInfoGenerated"
@@ -83,14 +83,14 @@ export default {
   },
   data() {
     return {
-      moreInfoGenerated: false,
+      moreInfoGenerated: true,
       isValid: false
     };
   },
   methods: {
-    generateInfo() {
+    /*generateInfo() {
       this.moreInfoGenerated = true;
-    },
+    },*/
     copyFromAddress() {
       this.$refs.fromaddress.select();
       document.execCommand('copy');
@@ -107,13 +107,13 @@ export default {
     nonceUpdated(e) {
       this.$emit('nonceUpdate', e);
     },
-    checkAddress() {
-      return this.$store.state.web3.utils.isAddress(
+    async checkAddress() {
+      return await this.$store.state.client.bb.isAddress(
         this.$store.state.wallet.getAddressString()
       );
     },
-    mounted() {
-      this.isValid = this.checkAddress();
+    async mounted() {
+      this.isValid = await this.checkAddress();
     }
   }
 };

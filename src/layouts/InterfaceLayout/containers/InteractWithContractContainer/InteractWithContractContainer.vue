@@ -19,7 +19,6 @@
         </div>
         <div class="the-form domain-name">
           <input
-            v-ens-resolver="address"
             v-model="address"
             type="text"
             placeholder="Enter Domain Name or Address" >

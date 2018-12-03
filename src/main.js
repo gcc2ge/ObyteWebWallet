@@ -30,7 +30,7 @@ Vue.component('popover', PopOver);
 
 // Directives!!!
 Vue.directive('click-outside', ClickOutside);
-Vue.directive('ens-resolver', EnsResolver);
+// Vue.directive('ens-resolver', EnsResolver);
 
 Vue.config.productionTip = false;
 

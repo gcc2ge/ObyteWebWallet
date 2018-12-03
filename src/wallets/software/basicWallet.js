@@ -15,8 +15,8 @@ export default class BasicWallet {
       this.decryptWallet(options);
     }
 
-    this.signTransaction = this._signTransaction.bind(this);
-    this.signMessage = this._signMessage.bind(this);
+    // this.signTransaction = this._signTransaction.bind(this);
+    // this.signMessage = this._signMessage.bind(this);
 
     return this;
   }
@@ -91,7 +91,7 @@ export default class BasicWallet {
 
   // ================== End Interface Methods ========================================
 
-  _signTransaction(txData) {
+  /*_signTransaction(txData) {
     return new Promise((resolve, reject) => {
       try {
         if (!this.wallet)
@@ -121,9 +121,9 @@ export default class BasicWallet {
         reject(e);
       }
     });
-  }
+  }*/
 
-  _signMessage(message) {
+  /*_signMessage(message) {
     return new Promise((resolve, reject) => {
       try {
         if (!this.wallet)
@@ -144,7 +144,7 @@ export default class BasicWallet {
         reject(e);
       }
     });
-  }
+  }*/
 
   detectWallet(params) {
     if (this._isJSON(params[0])) {
@@ -246,7 +246,7 @@ export default class BasicWallet {
 
   static generateWallet() {
     // eslint-disable-next-line new-cap
-    const tempWallet = new EthereumWallet.generate();
+    const tempWallet = Wallet.generate();
     const privKey = tempWallet.getPrivateKeyString();
 
     return new BasicWallet({

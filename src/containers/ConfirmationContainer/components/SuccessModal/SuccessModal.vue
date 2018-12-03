@@ -34,7 +34,7 @@ export default {
     },
     linkMessage: {
       type: String,
-      default: ''
+      default: 'OK'
     },
     linkTo: {
       type: String,

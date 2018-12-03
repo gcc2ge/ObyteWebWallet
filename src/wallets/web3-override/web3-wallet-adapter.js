@@ -8,8 +8,8 @@ export default class Web3WalletAdapter {
     this.brand = wallet.brand;
     this.length = 1;
     // Assign methods to external expected names, and bind to present context
-    this.signTransaction = this._signTransaction.bind(this);
-    this.signMessage = this._signMessage.bind(this);
+    // this.signTransaction = this._signTransaction.bind(this);
+    // this.signMessage = this._signMessage.bind(this);
   }
 
   // ============== (Start) EthereumJs-wallet interface methods ======================
@@ -120,7 +120,7 @@ export default class Web3WalletAdapter {
   // ============== (End) Utility methods ======================
   // ============== (Start) Operational Methods ======================
 
-  _signTransaction(tx) {
+  /*_signTransaction(tx) {
     return new Promise((resolve, reject) => {
       if (!tx) {
         reject(new Error('No transaction object given!'));
@@ -141,9 +141,9 @@ export default class Web3WalletAdapter {
           reject(_error);
         });
     });
-  }
+  }*/
 
-  _signMessage(message) {
+  /*_signMessage(message) {
     return new Promise((resolve, reject) => {
       const msgData = { data: message };
       if (this.wallet.isHardware && !msgData.from)
@@ -157,7 +157,7 @@ export default class Web3WalletAdapter {
           reject(_error);
         });
     });
-  }
+  }*/
 
   // ============== (End) Operational Methods ======================
   // ============== (Start) Utility Methods ======================

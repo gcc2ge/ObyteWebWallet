@@ -37,7 +37,6 @@
             </div>
             <div class="the-form address-block">
               <textarea
-                v-ens-resolver="address"
                 ref="toaddress"
                 v-model="address"
                 name="name"
@@ -77,14 +76,14 @@
           </div>
         </div>
       </div>
-      <tx-speed-input
+      <!--<tx-speed-input
         :nonce="nonce"
         :data="toData"
         :value="toAmt"
         :to-address="address"
         :gas-limit="gasLimit"
         @nonceUpdate="nonceUpdated"
-        @gasLimitUpdate="gasLimitUpdated"/>
+        @gasLimitUpdate="gasLimitUpdated"/>-->
       <div class="submit-button-container">
         <div
           :class="[!validAddress ? 'disabled': '' ,'submit-button large-round-button-green-filled']"
@@ -114,6 +113,7 @@ import Blockie from '@/components/Blockie';
 // eslint-disable-next-line
 const EthTx = require('ethereumjs-tx')
 import * as unit from 'ethjs-unit';
+import Utils from 'bitcore-wallet-client/lib/common/utils'
 
 export default {
   components: {
@@ -140,7 +140,7 @@ export default {
       toData: '0x',
       parsedBalance: 0,
       localGas: this.gasLimit,
-      coinType: [{ symbol: 'ETH', name: 'Ethereum' }],
+      coinType: [],
       selectedCoinType: '',
       raw: '',
       signed: '',
@@ -155,16 +155,21 @@ export default {
     },
     gasLimit(newVal) {
       this.localGas = newVal;
+    },
+    async address(newVal){
+      const v = await this.verifyAddr();
+      if (v) {
+        this.validAddress = true;
+      }else{
+        this.validAddress = false;
+      }
     }
   },
   async mounted() {
-    const rawBalance = await this.$store.state.web3.eth.getBalance(
+    const rawBalance = await this.$store.state.client.bb.getBalance(
       this.$store.state.wallet.getAddressString()
     );
-    this.parsedBalance = unit.fromWei(
-      this.$store.state.web3.utils.toBN(rawBalance).toString(),
-      'ether'
-    );
+    this.parsedBalance = Utils.formatAmount(rawBalance,"mega");
   },
   methods: {
     copyToAddress() {
@@ -174,7 +179,10 @@ export default {
     },
     next() {
       const raw = {
-        from: this.$store.state.wallet.getAddressString(),
+        outputs: [
+         {address: 'JEXTINCXBMQOG3O7UGYKGIBBN7LVXO2N', amount: 1000}
+        ]
+        /*from: this.$store.state.wallet.getAddressString(),
         gas: this.localGas,
         value: unit.toWei(this.toAmt, 'ether'),
         data: this.toData,
@@ -186,16 +194,27 @@ export default {
             : this.address !== ''
               ? this.address
               : '',
-        chainId: this.$store.state.network.type.chainID || 1
+        chainId: this.$store.state.network.type.chainID || 1*/
       };
-      this.$store.state.web3.eth.signTransaction(raw).then(signedTx => {
+      this.$store.state.client.bb.signTransaction(raw).then(signedTx => {
         this.$emit('createdRawTx', signedTx.rawTransaction);
-
+//
         this.raw = raw;
         this.signed = signedTx.rawTransaction;
-        this.$children[5].$refs.signedTx.show();
+        this.$children[4].$refs.signedTx.show();
         window.scrollTo(0, 0);
       });
+    },
+    async verifyAddr() {
+      if (this.address.length !== 0 && this.address !== '') {
+         const valid = await this.$store.state.client.bb.isAddress(
+           this.address
+         );
+         if (valid) {
+           return true;
+         }
+         return false;
+      }
     },
     gasLimitUpdated(e) {
       this.$emit('gasLimitUpdate', e);

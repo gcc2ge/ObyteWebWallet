@@ -78,9 +78,8 @@ export default {
       document.execCommand('copy');
     },
     sendTx() {
-      this.$store.state.web3.eth
+      this.$store.state.client.bb
         .sendSignedTransaction(this.signedTx)
-        .on('receipt', () => {})
         .then(() => {
           this.$children[0].$refs.success.show();
           // eslint-disable-next-line no-console
