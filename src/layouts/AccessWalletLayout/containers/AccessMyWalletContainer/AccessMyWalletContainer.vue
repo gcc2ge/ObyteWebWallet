@@ -199,11 +199,11 @@ export default {
       this.file = e;
       this.passwordOpen();
     },
-//    hardwarePasswordModalOpen(hardwareNeedingPassword) {
-//      this.walletConstructor = hardwareNeedingPassword.walletConstructor;
-//      this.hardwareBrand = hardwareNeedingPassword.hardwareBrand;
-//      this.$refs.hardwarePasswordModal.$refs.password.show();
-//    },
+    hardwarePasswordModalOpen(hardwareNeedingPassword) {
+      this.walletConstructor = hardwareNeedingPassword.walletConstructor;
+      this.hardwareBrand = hardwareNeedingPassword.hardwareBrand;
+      this.$refs.hardwarePasswordModal.$refs.password.show();
+    },
     hardwareWalletOpen(wallet) {
       try {
         this.walletConstructor = function() {};

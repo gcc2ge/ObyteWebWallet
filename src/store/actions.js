@@ -1,6 +1,7 @@
 import {override, WalletWrapper} from '@/wallets';
 import url from 'url';
 import web3 from 'web3';
+import byteball from 'byteball';
 
 const addNotification = function ({commit, state}, val) {
   const address = web3.utils.toChecksumAddress(val[0]);

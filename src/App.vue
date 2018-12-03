@@ -32,14 +32,7 @@ export default {
         ? store.get('network')
         : this.$store.state.Networks['LIVENET'][0];
     const hostUrl = url.parse(network.url);
-//    const newWeb3 = new Web3(
-//      `${hostUrl.protocol}//${hostUrl.hostname}:${network.port}${
-//        hostUrl.pathname
-//      }`
-//    );
-//    console.info(`${hostUrl.protocol}//${hostUrl.hostname}${
-//      hostUrl.pathname
-//      }`)
+
     const newClient=new byteball.Client(
       `${hostUrl.protocol}//${hostUrl.hostname}${
         hostUrl.pathname

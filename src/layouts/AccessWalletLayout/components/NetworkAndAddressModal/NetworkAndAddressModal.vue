@@ -85,7 +85,7 @@
           @click="setAddress(details, 'address' + index)">
           <li>{{ details.index + 1 }}.</li>
           <li>{{ details.address }}</li>
-          <li>{{ details.balance }} ETH</li>
+          <li>{{ details.balance }} MB</li>
           <li class="user-input-checkbox">
             <label class="checkbox-container checkbox-container-small">
               <input
@@ -141,6 +141,7 @@
 <script>
   import CustomerSupport from '@/components/CustomerSupport';
   import * as unit from 'ethjs-unit';
+  import Utils from 'bitcore-wallet-client/lib/common/utils'
 
   export default {
     components: {
@@ -307,20 +308,16 @@
         return new Promise((resolve, reject) => {
           if (offset + count > this.maxIndex) {
             this.connectionActive = !this.connectionActive;
-            const web3 = this.$store.state.web3;
+            const client = this.$store.state.client;
             const hardwareAddresses = [];
             this.hardwareWallet
               .getMultipleAccounts(count, offset)
               .then(_accounts => {
                 Object.values(_accounts).forEach(async (address, i) => {
-//                const rawBalance = await this.$store.state.web3.eth.getBalance(
-//                  address
-//                );
-//                const balance = unit.fromWei(
-//                  web3.utils.toBN(rawBalance).toString(),
-//                  'ether'
-//                );
-                  var balance = 0;
+                 const rawBalance = await this.getBalance(
+                  address
+                 );
+                  const balance = Utils.formatAmount(rawBalance,"mega");
                   hardwareAddresses.push({index: offset + i, address, balance});
                   this.hardwareAddresses.push({
                     index: offset + i,
@@ -350,6 +347,19 @@
         this.customPaths = {
           ...this.$store.state.customPaths
         };
+      },
+      async getBalance(address){
+        const client = this.$store.state.client;
+        var arr=[address];
+        return new Promise((resolve,reject)=>{
+          client.api.getBalances(arr, function (err, result) {
+            if (err || result=={}) {resolve(0)}
+            else{
+              var balance = result[address].base.stable;
+              resolve(balance);
+            }
+          });
+        });
       }
     }
   };

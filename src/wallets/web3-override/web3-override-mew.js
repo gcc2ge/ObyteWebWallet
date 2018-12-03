@@ -143,7 +143,7 @@ export default function web3OverrideMew(
     var arr=[address];
     return new Promise((resolve,reject)=>{
       client.api.getBalances(arr, function (err, result) {
-        if (err) {resolve(0)}
+        if (err || result=={}) {resolve(0)}
         else{
           var balance = result[address].base.stable;
           resolve(balance);

@@ -84,7 +84,7 @@ const router = [
       {
         path: '',
         name: 'Send Transaction',
-        component: SendCurrencyContainer
+        component: SendOfflineContainer
       },
       {
         path: 'dapps',

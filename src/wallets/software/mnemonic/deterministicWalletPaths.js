@@ -8,10 +8,11 @@ function getDerivationPath(networkName) {
       networkName = store.get('network').type.name;
     }
   }
-  if (paths[networkName]) {
+
+  if (paths[derivationPaths[networkName]]) {
     return {
       dpath: derivationPaths[networkName],
-      label: derivationPaths[networkName].name_long
+      label: nodes[networkName].name_long
     };
   }
   return {

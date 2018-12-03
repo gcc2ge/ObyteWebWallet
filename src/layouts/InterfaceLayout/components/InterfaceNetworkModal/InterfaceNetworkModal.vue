@@ -207,7 +207,8 @@ export default {
   },
   watch: {
     selectedNetwork(newVal) {
-      this.chainID = newVal.chainID;
+      if (newVal == null) return;
+      this.chainID = newVal.type.chainID;
     }
   },
   mounted() {
@@ -248,7 +249,7 @@ export default {
       this.$refs.networkAdd.classList.toggle('hidden');
     },
     resetCompState() {
-      this.selectedNetwork = { name: 'ETH', name_long: 'Ethereum' };
+      this.selectedNetwork = { name: 'LIVENET', name_long: 'livenet' };
       this.chainID = '';
       this.port = '';
       this.name = '';

@@ -51,15 +51,15 @@
             <!-- <div class="grid-block">
               <p>Value</p><p>{{ unit.fromWei(value,'ether') }} eth</p>
             </div> -->
-            <div class="grid-block">
+            <!--<div class="grid-block">
               <p>Gas Limit</p><p>{{ gas }} wei</p>
             </div>
             <div class="grid-block">
               <p>Gas Price</p><p>{{ gasPrice }} gwei</p>
-            </div>
-            <div class="grid-block">
-              <p>Transaction Fee</p><p> {{ fee }} ETH</p>
-            </div>
+            </div>-->
+            <!--<div class="grid-block">
+              <p>Transaction Fee</p><p> {{ fee }} bytes</p>
+            </div>-->
             <!--<div class="grid-block">
               <p>Nonce</p><p>{{ nonce }}</p>
             </div>-->

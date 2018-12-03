@@ -1,23 +1,23 @@
 import nodeList from '@/networks';
 const state = {
-  web3: {},
+  // web3: {},
   client:{},
   network: {
     auth: false,
     password: '',
     port: 80,
-    service: 'byteball.org/bb-test',
+    service: 'byteball.org/bb',
     type: {
-      blockExplorerAddr: 'https://ropsten.etherscan.io/address/[[txHash]]',
-      blockExplorerTX: 'https://ropsten.etherscan.io/tx/[[txHash]]',
-      chainID: 3,
+      blockExplorerAddr: 'https://explorer.byteball.org/#[[address]]',
+      blockExplorerTX: 'https://explorer.byteball.org/#[[txHash]]',
+      chainID: 0,
       contracts: [],
-      homePage: 'https://github.com/ethereum/ropsten',
+      homePage: 'https://explorer.byteball.org/',
       name: 'LIVENET',
       name_long: 'livenet',
       tokens: []
     },
-    url: 'https://api.myetherwallet.com/rop',
+    url: 'wss://byteball.org/bb',
     username: ''
   },
   wallet: null,
@@ -30,8 +30,8 @@ const state = {
   online: true,
   customPaths: {},
   notifications: {},
-  gasPrice: 41,
-  ens: {}
+  // gasPrice: 41,
+  // ens: {}
 };
 
 export default state;

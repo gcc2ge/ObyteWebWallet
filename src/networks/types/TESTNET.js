@@ -1,18 +1,16 @@
 import tokens from '@/tokens/tokens-akroma.json';
 import contracts from '@/contracts/contract-abi-akroma.json';
-import aka from '@/assets/images/networks/aka.svg';
+import esn from '@/assets/images/networks/esn.svg';
 // import { EthAbi } from '../ensAbis';
 
 export default {
   name: 'TESTNET',
   name_long: 'testnet',
-  homePage: 'https://akroma.io/',
-  blockExplorerTX: 'https://akroma.io/explorer/transaction/[[txHash]]',
-  blockExplorerAddr: 'https://akroma.io/explorer/address/[[address]]',
-  chainID: 200625,
-  tokens: '',
-  contracts: '',
-  ensResolver: '',
-  ensAbi: '',
-  icon: aka
+  homePage: 'https://testnetexplorer.byteball.org',
+  blockExplorerTX: 'https://testnetexplorer.byteball.org/#[[txHash]]',
+  blockExplorerAddr: 'https://testnetexplorer.byteball.org/#[[address]]',
+  chainID: 1,
+  tokens: [],
+  contracts: [],
+  icon: esn
 };

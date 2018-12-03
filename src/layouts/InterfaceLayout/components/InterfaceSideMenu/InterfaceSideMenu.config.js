@@ -1,9 +1,9 @@
 export default {
   tabs: [
     {
-      name: 'send-transaction',
+      name: 'send-offline-transaction',
       routes: [
-        '/interface/send-transaction',
+        // '/interface/send-transaction',
         '/interface',
         '/interface/send-offline-transaction'
       ],
@@ -13,7 +13,7 @@ export default {
       },
       titleKey: 'interface.txSideMenuTitle',
       children: [
-        {
+        /*{
           name: 'send-transaction',
           routes: ['/interface/send-transaction', '/interface'],
           icons: {
@@ -21,10 +21,10 @@ export default {
             inactive: ''
           },
           titleKey: 'common.sendTx'
-        },
+        },*/
         {
           name: 'send-offline-transaction',
-          routes: ['/interface/send-offline-transaction'],
+          routes: ['/interface/send-offline-transaction', '/interface'],
           icons: {
             active: '',
             inactive: ''

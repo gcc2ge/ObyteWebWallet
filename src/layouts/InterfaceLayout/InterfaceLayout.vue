@@ -41,6 +41,7 @@
   import {mapGetters} from 'vuex';
   import {parseTokensHex} from '@/helpers';
   import ENS from 'ethereum-ens';
+  import Utils from 'bitcore-wallet-client/lib/common/utils'
 
   import WalletNotFoundContainer from './containers/WalletNotFoundContainer';
 
@@ -126,13 +127,13 @@
       getBalance() {
         const client = this.$store.state.client;
         var self=this;
-        const address="3KGRUVQDV6VIVNHEV2XIO4YUGFCWMYPJ";
+        const address=this.address;
         var arr=[address];
 
         client.api.getBalances(arr, function (err, result) {
           if (!result) return;
-          if (err) console.info(`error ${JSON.stringify(err)}`)
-          self.balance = result[address].base.stable;
+          if (err) console.info(`error ${JSON.stringify(err)}`);
+          self.balance = Utils.formatAmount(result[address].base.stable,"mega");
           this.$store.dispatch('setAccountBalance', self.balance);
         });
         /*const web3 = this.$store.state.web3;
