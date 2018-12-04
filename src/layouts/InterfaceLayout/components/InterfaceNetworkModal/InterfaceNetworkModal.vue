@@ -73,7 +73,7 @@
               class="custom-input-text-1"
               type="text"
               name=""
-              placeholder="ETH Node Name"
+              placeholder="Byteball Node Name"
               autocomplete="off">
             <select
               v-model="selectedNetwork"

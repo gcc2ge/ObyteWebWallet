@@ -54,7 +54,7 @@
         </div>
       </div>
 
-      <div class="send-form">
+      <!--<div class="send-form">
         <div class="title-container">
           <div class="title">
             <div class="title-helper">
@@ -75,7 +75,7 @@
               aria-hidden="true"/>
           </div>
         </div>
-      </div>
+      </div>-->
       <!--<tx-speed-input
         :nonce="nonce"
         :data="toData"
@@ -142,7 +142,7 @@ export default {
       localGas: this.gasLimit,
       coinType: [],
       selectedCoinType: '',
-      raw: '',
+      raw: {},
       signed: '',
       locNonce: this.nonce,
       validAddress: false,
@@ -180,7 +180,7 @@ export default {
     next() {
       const raw = {
         outputs: [
-         {address: 'JEXTINCXBMQOG3O7UGYKGIBBN7LVXO2N', amount: 1000}
+         {address: this.address, amount: 1000}
         ]
         /*from: this.$store.state.wallet.getAddressString(),
         gas: this.localGas,

@@ -142,6 +142,7 @@
   import CustomerSupport from '@/components/CustomerSupport';
   import * as unit from 'ethjs-unit';
   import Utils from 'bitcore-wallet-client/lib/common/utils'
+  import ByteBallWallet from 'bbwallet/wallet';
 
   export default {
     components: {
@@ -263,7 +264,7 @@
           });
       },
       unlockWallet() {
-        this.$store.dispatch('decryptWallet', this.hardwareWallet);
+        this.$store.dispatch('decryptWallet', ByteBallWallet.fromPrivateKey(this.hardwareWallet.wallet.privKey));
         this.$router.push({path: 'interface'});
       },
       setAddress(details, element) {

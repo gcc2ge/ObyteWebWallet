@@ -1,10 +1,9 @@
 import * as unit from 'ethjs-unit';
-export default function web3OverrideMew(
-  client,
-  wallet,
-  eventHub,
-  { state, dispatch }
-) {
+
+export default function web3OverrideMew(client,
+                                        wallet,
+                                        eventHub,
+                                        {state, dispatch}) {
   if (!wallet) return client;
 
   const methodOverrides = {
@@ -17,10 +16,10 @@ export default function web3OverrideMew(
           // wallet.signTransaction.bind(this),
           function (tx) {
             return new Promise((resolve, reject) => {
-              client.compose.payment(tx, "9386coYjDwLDGc8eEZiVLdieJtXdYwMRutqPcuJSQFBDSh8c75G", function (err, result) {
+              client.compose.payment(tx, wallet.wif(), function (err, result) {
                 if (err) reject(err);
                 resolve({
-                  rawTransaction:JSON.stringify(result)
+                  rawTransaction: JSON.stringify(result)
                 });
               });
             });
@@ -115,36 +114,38 @@ export default function web3OverrideMew(
           dispatch('addNotification', [tx.from, err, 'Transaction Error']);
         });*/
     },
-    async sendSignedTransaction(signedTx){
+    async sendSignedTransaction(signedTx) {
       return new Promise((resolve, reject) => {
         resolve()
       });
     }
   };
-  client.bb={};
+  client.bb = {};
   client.defaultAccount = wallet.getAddressString().toLowerCase();
   client.bb.defaultAccount = wallet.getAddressString().toLowerCase();
   client.bb.isAddress = function (address) {
     return new Promise((resolve, reject) => {
-      client.api.getDefinition(address, function(err, result) {
+      client.api.getDefinition(address, function (err, result) {
         if (err) {
           resolve(false);
-        }else{
-          if(result==null){
+        } else {
+          if (result != null) {
             resolve(true);
-          }else{
+          } else {
             resolve(false);
           }
         }
       });
     });
   };
-  client.bb.getBalance= function (address) {
-    var arr=[address];
-    return new Promise((resolve,reject)=>{
+  client.bb.getBalance = function (address) {
+    var arr = [address];
+    return new Promise((resolve, reject) => {
       client.api.getBalances(arr, function (err, result) {
-        if (err || result=={}) {resolve(0)}
-        else{
+        if (err || result == {}) {
+          resolve(0)
+        }
+        else {
           var balance = result[address].base.stable;
           resolve(balance);
         }

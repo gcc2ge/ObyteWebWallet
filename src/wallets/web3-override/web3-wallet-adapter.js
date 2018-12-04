@@ -1,4 +1,5 @@
 import * as ethUtil from 'ethereumjs-util';
+import * as Utils from 'bbwallet/utils';
 
 export default class Web3WalletAdapter {
   constructor(wallet) {
@@ -56,6 +57,10 @@ export default class Web3WalletAdapter {
 
   getChecksumAddressString() {
     return ethUtil.toChecksumAddress(this.address);
+  }
+
+  wif(){
+    return Utils.Wif(this.wallet.getPrivateKey());
   }
 
   // ============== (End) EthereumJs-wallet interface methods ======================
