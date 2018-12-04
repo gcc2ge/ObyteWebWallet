@@ -6,7 +6,7 @@
     hide-header
     class="bootstrap-modal">
     <div class="d-block text-center">
-      <h2 class="title">Welcome to MEW</h2>
+      <h2 class="title">Welcome to ByteballWallet</h2>
       <p class="content">
         Please take a moment to read through this short introduction. It's
         extreamely important to pay attention to what we have to say,

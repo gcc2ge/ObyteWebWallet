@@ -4,7 +4,7 @@
     <div class="block-progressbar">
       <dir class="block-progressbar__container">
         <div class="block-progressbar__title">
-          About MyEtherWallet
+          About ByteballWallet
         </div>
         <div class="block-progressbar__progressbar">
           <div :class="progressBarValue"/>

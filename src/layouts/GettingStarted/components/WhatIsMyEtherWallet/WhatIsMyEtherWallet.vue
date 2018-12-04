@@ -4,20 +4,20 @@
     <div class="block-progressbar">
       <dir class="block-progressbar__container">
         <div class="block-progressbar__title">
-          About MyEtherWallet
+          About ByteballrWallet
         </div>
         <div class="block-progressbar__progressbar">
           <div :class="progressBarValue"/>
         </div>
         <div class="block-progressbar__content">
-          <h4>What is MyEtherWallet?</h4>
+          <h4>What is ByteballWallet?</h4>
           <p>
-            MyEtherWallet(MEW) is a free, open-source, client-side interface.
-            MEW allows you to interact directly with the blockchain, while
+            ByteballWallet is a free, open-source, client-side interface.
+            ByteballWallet allows you to interact directly with the blockchain, while
             remaining in full control of your keys and funds.
           </p>
           <p>
-            Did you read that? YOU are the one who is in control. MEW is not
+            Did you read that? YOU are the one who is in control. ByteballWallet is not
             a bank or exchange, we are an interface. This means we don't hold
             your keys or information, but it also means we can't access accounts,
             recover keys, reset passwords, or reverse transactions.

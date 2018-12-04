@@ -52,7 +52,7 @@
             <router-link to="/">Terms</router-link>
           </div>
           <div class="create-wallet-warnings__copyright">
-            <p>© 2018 MyEtherWallet. All rights reserved.</p>
+            <p>© 2018 ByteballWallet. All rights reserved.</p>
           </div>
         </div>
       </div>
