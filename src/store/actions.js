@@ -73,7 +73,7 @@ const setClientInstance = function ({dispatch, commit, state}, provider) {
   const client = new byteball.Client(
     `${hostUrl.protocol}//${hostUrl.hostname}${
       hostUrl.pathname
-      }`, true);
+      }`, state.network.type.name == "LIVENET" ? false : true);
 
   commit(
     'SET_CLIENT_INSTANCE',

@@ -16,6 +16,7 @@ export default function web3OverrideMew(client,
           // wallet.signTransaction.bind(this),
           function (tx) {
             return new Promise((resolve, reject) => {
+              // console.info(wallet.wif())
               client.compose.payment(tx, wallet.wif(), function (err, result) {
                 if (err) reject(err);
                 resolve({
@@ -129,11 +130,7 @@ export default function web3OverrideMew(client,
         if (err) {
           resolve(false);
         } else {
-          if (result != null) {
-            resolve(true);
-          } else {
-            resolve(false);
-          }
+          resolve(true);
         }
       });
     });

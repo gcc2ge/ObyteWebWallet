@@ -60,7 +60,7 @@ export default class Web3WalletAdapter {
   }
 
   wif(){
-    return Utils.Wif(this.wallet.getPrivateKey());
+    return Utils.Wif(this.wallet.getPrivateKey().derive('m/0/0'));
   }
 
   // ============== (End) EthereumJs-wallet interface methods ======================

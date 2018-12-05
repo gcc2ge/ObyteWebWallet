@@ -201,7 +201,7 @@ export default {
 //
         this.raw = raw;
         this.signed = signedTx.rawTransaction;
-        this.$children[4].$refs.signedTx.show();
+        this.$children[3].$refs.signedTx.show();
         window.scrollTo(0, 0);
       });
     },
