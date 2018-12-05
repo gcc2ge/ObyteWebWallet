@@ -36,7 +36,7 @@ export default {
     const newClient=new byteball.Client(
       `${hostUrl.protocol}//${hostUrl.hostname}${
         hostUrl.pathname
-        }`, true);
+        }`, network.type.name == "LIVENET" ? false : true);
     const notifications =
       store.get('notifications') !== undefined
         ? store.get('notifications')
