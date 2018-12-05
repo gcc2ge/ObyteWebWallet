@@ -41,6 +41,7 @@ export default class MnemonicWallet extends HardwareWalletInterface {
     this.accountsOffset =
       currentOptions.accountsOffset || this.defaultAccountsOffset;
     this.networkId = currentOptions.networkId || this.defaultNetworkId;
+    this.network = currentOptions.network || this.defaultNetwork;
 
     this.getAccounts = this.getAccounts.bind(this);
     this.getMultipleAccounts = this.getMultipleAccounts.bind(this);
@@ -149,7 +150,7 @@ export default class MnemonicWallet extends HardwareWalletInterface {
       this.phrase = options.mnemonicPhrase;
       this.password = options.mnemonicPassword;
       var m = new BB_Mnemonic(options.mnemonicPhrase);
-      this.hdk = m.toHDPrivateKey(options.mnemonicPassword, 'livenet');
+      this.hdk = m.toHDPrivateKey(options.mnemonicPassword, this.network);
       this.setHDAddresses();
     } catch (e) {
       throw  e;

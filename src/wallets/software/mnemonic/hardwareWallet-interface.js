@@ -3,6 +3,7 @@ export default class HardwareWalletInterface {
     this.type = 'hardware';
     this.isHardwareWallet = true;
     this.defaultNetworkId = 1;
+    this.defaultNetwork = 'livenet';
     this.defaultAccountsCount = 5;
     this.defaultAccountsOffset = 0;
   }

@@ -63,7 +63,8 @@ export default {
     unlockWallet() {
       MnemonicWallet.unlock({
         mnemonicPhrase: this.phrase,
-        mnemonicPassword: this.password
+        mnemonicPassword: this.password,
+        network: this.$store.state.network.type.name_long
       })
         .then(wallet => {
           this.$refs.password.hide();
