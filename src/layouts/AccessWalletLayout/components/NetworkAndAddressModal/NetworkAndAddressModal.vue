@@ -143,6 +143,8 @@
   import * as unit from 'ethjs-unit';
   import Utils from 'bitcore-wallet-client/lib/common/utils'
   import ByteBallWallet from 'bbwallet/wallet';
+  import url from 'url';
+  import byteball from 'byteball';
 
   export default {
     components: {
@@ -244,6 +246,7 @@
         }
       },
       selectDPath(key) {
+//        console.info(JSON.stringify(this.availablePaths[key]))
         // rectify with content above
         this.customPathInput = false;
         this.resetPaginationValues();
@@ -350,6 +353,16 @@
         };
       },
       async getBalance(address){
+        if(this.selecteDPath != ''){
+          const network = this.$store.state.Networks[this.selecteDPath.label.toUpperCase()][0];
+          const hostUrl = url.parse(network.url);
+          const newClient=new byteball.Client(
+            `${hostUrl.protocol}//${hostUrl.hostname}${
+              hostUrl.pathname
+              }`, network.type.name == "LIVENET" ? false : true);
+          this.$store.dispatch('switchNetwork', network);
+        }
+
         const client = this.$store.state.client;
         var arr=[address];
         return new Promise((resolve,reject)=>{
