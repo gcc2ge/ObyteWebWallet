@@ -106,7 +106,7 @@
               class="custom-input-text-1"
               type="number"
               name=""
-              placeholder="https://etherscan.io/tx/"
+              placeholder="https://byteball.io/tx/"
               autocomplete="off">
             <input
               v-show="selectedNetwork.name === 'CUS'"
@@ -122,7 +122,7 @@
               class="custom-input-text-1"
               type="number"
               name=""
-              placeholder="https://etherscan.io/address/"
+              placeholder="https://byteball.io/address/"
               autocomplete="off">
           </div>
         </div>
