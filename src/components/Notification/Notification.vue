@@ -34,11 +34,11 @@
             <div
               class="notification-header"
               @click="expand(idx, notification, $event)">
-              <p :class="[notification.read? '': 'unread']"> {{ notification.title }} </p>
+              <p :class="[notification.read? '': 'unread']"> to: {{ notification.to }} <br/> amount: {{ notification.amount }} </p>
               <p :class="[notification.read? '': 'unread']"> {{ notification.timestamp }}</p>
             </div>
             <div :class="[notification.expanded?'':'unexpanded', 'notification-body']">
-              {{ notification.body }}
+              <a :href="notification.body" target="_blank">{{ notification.body }}</a>
             </div>
           </div>
         </div>

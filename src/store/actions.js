@@ -2,9 +2,11 @@ import {override, WalletWrapper} from '@/wallets';
 import url from 'url';
 import web3 from 'web3';
 import byteball from 'byteball';
+import moment from "moment"
 
 const addNotification = function ({commit, state}, val) {
-  const address = web3.utils.toChecksumAddress(val[0]);
+  const address = val[0];
+  // const address = web3.utils.toChecksumAddress(val[0]);
   const newNotif = {};
   Object.keys(state.notifications).forEach(item => {
     newNotif[item] = state.notifications[item];
@@ -13,9 +15,10 @@ const addNotification = function ({commit, state}, val) {
   if (!Array.isArray(newNotif[address])) newNotif[address] = [];
 
   newNotif[address].push({
-    title: val[2],
+    to: val[2],
+    amount: val[3],
     read: false,
-    timestamp: new Date(),
+    timestamp: moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
     body: val[1].hasOwnProperty('message') ? val[1].message : val[1],
     expanded: false
   });
@@ -119,7 +122,8 @@ const switchNetwork = function ({commit}, networkObj) {
 
 const updateNotification = function ({commit, state}, val) {
   // address, index, object
-  const address = web3.utils.toChecksumAddress(val[0]);
+  // const address = web3.utils.toChecksumAddress(val[0]);
+  const address = val[0];
   const newNotif = {};
   Object.keys(state.notifications).forEach(item => {
     newNotif[item] = state.notifications[item];

@@ -117,7 +117,26 @@ export default function web3OverrideMew(client,
     },
     async sendSignedTransaction(signedTx) {
       return new Promise((resolve, reject) => {
-        resolve()
+        signedTx = JSON.parse(signedTx);
+        console.info(`${typeof signedTx} ${signedTx}`)
+        const params = {
+          unit: signedTx
+        };
+        var hash =state.network.type.blockExplorerTX.replace("[[txHash]]",signedTx.unit);
+
+        var to=signedTx.messages[0].payload.outputs[0].address;
+        var amount=signedTx.messages[0].payload.outputs[0].amount;
+        // var title=`title`;
+        var to =to;
+        var amount = amount;
+
+        client.api.postJoint(params, function(err, result) {
+          if (err) console.info(err)
+          dispatch('addNotification', [wallet.getAddressString(), hash, to, amount]);
+          resolve();
+          // console.log(result);
+        })
+
       });
     }
   };

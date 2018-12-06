@@ -11,7 +11,8 @@
             <currency-picker
               :currency="coinType"
               :token="true"
-              page="sendOfflineGenTx"/>
+              page="sendOfflineGenTx"
+              @selectedCurrency="setSelectedCurrency"/>
             <div class="the-form amount-number">
               <input
                 v-model="toAmt"
@@ -114,6 +115,7 @@ import Blockie from '@/components/Blockie';
 const EthTx = require('ethereumjs-tx')
 import * as unit from 'ethjs-unit';
 import Utils from 'bitcore-wallet-client/lib/common/utils'
+import Constants from 'bitcore-wallet-client/lib/common/constants'
 
 export default {
   components: {
@@ -136,6 +138,7 @@ export default {
   data() {
     return {
       toAmt: 0,
+      amount: 0,
       address: '',
       toData: '0x',
       parsedBalance: 0,
@@ -144,6 +147,7 @@ export default {
       selectedCoinType: '',
       raw: {},
       signed: '',
+      selectedCurrency: { name: 'mega', symbol: 'MB' },
       locNonce: this.nonce,
       validAddress: false,
       resolvedAddress: ''
@@ -163,6 +167,13 @@ export default {
       }else{
         this.validAddress = false;
       }
+    },
+    toAmt(newVal) {
+      this.calculateAmount(newVal);
+    },
+    selectedCurrency(newVal) {
+      this.selectedCurrency = newVal;
+      this.calculateAmount(this.toAmt);
     }
   },
   async mounted() {
@@ -180,7 +191,7 @@ export default {
     next() {
       const raw = {
         outputs: [
-         {address: this.address, amount: 1000}
+         {address: this.address, amount: this.amount}
         ]
         /*from: this.$store.state.wallet.getAddressString(),
         gas: this.localGas,
@@ -205,6 +216,9 @@ export default {
         window.scrollTo(0, 0);
       });
     },
+    setSelectedCurrency(e) {
+      this.selectedCurrency = e;
+    },
     async verifyAddr() {
       if (this.address.length !== 0 && this.address !== '') {
          const valid = await this.$store.state.client.bb.isAddress(
@@ -215,6 +229,10 @@ export default {
          }
          return false;
       }
+    },
+    calculateAmount(newVal){
+      const val = Constants.UNITS[this.selectedCurrency.name].value
+      this.amount = newVal * val;
     },
     gasLimitUpdated(e) {
       this.$emit('gasLimitUpdate', e);
