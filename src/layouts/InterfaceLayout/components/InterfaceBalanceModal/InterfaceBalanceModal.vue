@@ -10,7 +10,7 @@
         <div class="flex-container">
           <h4 class="modal-title">{{ $t('common.totalBalance') }}</h4>
           <div class="margin-left-auto total-balance-amount">
-            <span>{{ balance }}</span> ETH
+            <span>{{ balance }}</span> MB
           </div>
         </div>
       </div>
@@ -38,6 +38,11 @@ import iconEur from '@/assets/images/currency/eur.svg';
 import iconChf from '@/assets/images/currency/chf.svg';
 import iconGbp from '@/assets/images/currency/gbp.svg';
 import iconUsd from '@/assets/images/currency/usd.svg';
+import iconCny from '@/assets/images/currency/cny.svg';
+
+import axios from 'axios';
+import Utils from 'bitcore-wallet-client/lib/common/utils'
+import Constants from 'bitcore-wallet-client/lib/common/constants'
 
 export default {
   props: {
@@ -50,37 +55,60 @@ export default {
     return {
       equivalentValues: [
         {
+          image: iconCny,
+          name: 'CNY',
+          value: '0'
+        },{
           image: iconBtc,
           name: 'BTC',
-          value: '102.22453'
-        },
-        {
-          image: iconRep,
-          name: 'REP',
-          value: '5656.22'
-        },
-        {
-          image: iconChf,
-          name: 'CHF',
-          value: '12410004.22453'
+          value: '0'
         },
         {
           image: iconUsd,
           name: 'USD',
-          value: '312004.53'
+          value: '0'
         },
-        {
-          image: iconEur,
-          name: 'EUR',
-          value: '12410.22'
-        },
-        {
-          image: iconGbp,
-          name: 'GBP',
-          value: '687867.53'
-        }
-      ]
+      ],
+      pollBalance: () => {
+
+      },
     };
+  },
+  mounted() {
+    this.setupOnlineEnvironment()
+  },
+  destroyed() {
+    this.clearIntervals();
+  },
+  methods: {
+    async getEquivalent(amount) {
+      const convertTo = 'CNY';
+      const BASE_URL = 'https://api.coinmarketcap.com/v1/ticker';
+      const currency = 'byteball';
+
+      const createApiUrl = currency =>
+        `${BASE_URL}/${currency}/?convert=${convertTo}`;
+
+      const response = await axios.get(createApiUrl(currency));
+
+      for (let i=0;i<this.equivalentValues.length;i++){
+        let a = this.equivalentValues[i];
+        if (response.data && response.data.length >= 1){
+          a.value=response.data[0][`price_${a.name.toLowerCase()}`]*amount;
+        }
+      }
+    },
+    calcBalance() {
+      const val = Constants.UNITS['mega'].value;
+      var amount =Utils.formatAmount(this.balance * val,"giga");
+      this.getEquivalent(amount);
+    },
+    clearIntervals() {
+      clearInterval(self.pollBalance);
+    },
+    setupOnlineEnvironment() {
+      this.pollBalance = setInterval(this.calcBalance, 1000);
+    }
   }
 };
 </script>

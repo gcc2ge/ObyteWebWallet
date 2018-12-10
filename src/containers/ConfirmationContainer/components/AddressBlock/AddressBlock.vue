@@ -55,7 +55,8 @@ export default {
   methods: {
     converter(num) {
 //      return web3.utils.fromWei(num.toString(), 'ether');
-      return Utils.formatAmount(num,"mega")
+
+      return Utils.formatAmount(num,"giga")
     }
   }
 };
