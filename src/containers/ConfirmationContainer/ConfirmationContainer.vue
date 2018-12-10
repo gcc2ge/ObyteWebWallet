@@ -275,7 +275,7 @@ export default {
       this.parsedBalance = 0;
       this.toAddress = '';
       this.transactionFee = 0;
-      this.selectedCurrency = { symbol: 'GB', name: 'Byteball' };
+      this.selectedCurrency = { symbol: 'MB', name: 'Byteball' };
       this.raw = {};
       this.signedTx = '';
       this.messageToSign = '';
