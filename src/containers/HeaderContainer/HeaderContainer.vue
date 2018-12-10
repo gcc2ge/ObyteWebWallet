@@ -125,9 +125,13 @@ export default {
   data() {
     return {
       supportedLanguages: [
+        { name: 'English', flag: 'en' },
+        { name: '简体中文', flag: 'zh_Hans' },
+        { name: '繁體中文', flag: 'zh_Hant' },
+        { name: '日本語', flag: 'ja' },
+        { name: '한국어', flag: 'ko' },
         { name: 'Deutsch', flag: 'de' },
         { name: 'Ελληνικά', flag: 'gr' },
-        { name: 'English', flag: 'en' },
         { name: 'Español', flag: 'es' },
         { name: 'Farsi', flag: 'ir' },
         { name: 'Suomi', flag: 'fi' },
@@ -135,8 +139,6 @@ export default {
         { name: 'Haitian Creole', flag: 'ht' },
         { name: 'Bahasa Indonesia', flag: 'id' },
         { name: 'Italiano', flag: 'it' },
-        { name: '日本語', flag: 'ja' },
-        { name: '한국어', flag: 'ko' },
         { name: 'Nederlands', flag: 'nl' },
         { name: 'Norsk Bokmål', flag: 'no' },
         { name: 'Polski', flag: 'pl' },
@@ -144,9 +146,7 @@ export default {
         { name: 'Русский', flag: 'ru' },
         { name: 'ภาษาไทย', flag: 'th' },
         { name: 'Türkçe', flag: 'tr' },
-        { name: 'Tiếng Việt', flag: 'vn' },
-        { name: '简体中文', flag: 'zh-Hans' },
-        { name: '繁體中文', flag: 'zh-Hant' }
+        { name: 'Tiếng Việt', flag: 'vn' }
       ],
       online: true,
       currentName: 'English',
