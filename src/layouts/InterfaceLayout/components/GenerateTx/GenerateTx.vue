@@ -20,7 +20,7 @@
                 name=""
                 placeholder="Deposit Amount">
               <i
-                :class="[parsedBalance < toAmt ? 'not-good': '','fa fa-check-circle good-button']"
+                :class="[parsedBalance < amount ? 'not-good': '','fa fa-check-circle good-button']"
                 aria-hidden="true"/>
             </div>
           </div>
@@ -49,7 +49,7 @@
           </div>
         </div>
         <div
-          v-show="parsedBalance < toAmt"
+          v-show="parsedBalance < amount"
           class="error-message-container">
           <p>You don't have enough funds</p>
         </div>
@@ -180,7 +180,8 @@ export default {
     const rawBalance = await this.$store.state.client.bb.getBalance(
       this.$store.state.wallet.getAddressString()
     );
-    this.parsedBalance = Utils.formatAmount(rawBalance,"mega");
+//    this.parsedBalance = Utils.formatAmount(rawBalance,"mega");
+    this.parsedBalance = rawBalance;
   },
   methods: {
     copyToAddress() {
@@ -231,7 +232,8 @@ export default {
       }
     },
     calculateAmount(newVal){
-      const val = Constants.UNITS[this.selectedCurrency.name].value
+//      console.info(`${this.selectedCurrency.name} ${Constants.UNITS[this.selectedCurrency.name].value} ${newVal}`)
+      const val = Constants.UNITS[this.selectedCurrency.name].value;
       this.amount = newVal * val;
     },
     gasLimitUpdated(e) {

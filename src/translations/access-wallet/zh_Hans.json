@@ -22,7 +22,7 @@
   "metaMaskModalDesc": "请通过安全连接(SSL/HTTPS)来使用钱包.",
   "software": "软件",
   "softwareDesc": "JSON 文件, 私钥, 助记词",
-  "notRecommended": "不推荐",
+  "notRecommended": "",
   "unlock": "解锁钱包",
   "installMetamask": "安装MetaMask",
   "tryAgain": "重试"

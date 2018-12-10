@@ -22,7 +22,7 @@
   "metaMaskModalDesc": "Please use MyEtherWallet on a secure (SSL/HTTPS) connection to connect.",
   "software": "Software",
   "softwareDesc": "JSON file, Private key, Mnemonic phrase",
-  "notRecommended": "Not recommended",
+  "notRecommended": "",
   "unlock": "Unlock wallet",
   "installMetamask": "Install MetaMask",
   "tryAgain": "Try Again"
