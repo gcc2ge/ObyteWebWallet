@@ -9,9 +9,9 @@
         <h4 class="block-title">Signed Transaction</h4>
       </div>
       <div class="signed-tx-container">
-        <code>
+        <div style="overflow: auto;font-weight: 200;">
           {{ signedTx }}
-        </code>
+        </div>
         <input
           ref="signedTxInput"
           :value="signedTx"

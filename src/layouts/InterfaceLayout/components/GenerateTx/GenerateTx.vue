@@ -170,6 +170,7 @@ export default {
     },
     toAmt(newVal) {
       this.calculateAmount(newVal);
+//      console.info(`amount ${this.amount} parse ${this.parsedBalance}`)
     },
     selectedCurrency(newVal) {
       this.selectedCurrency = newVal;

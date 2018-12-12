@@ -1,8 +1,8 @@
-import testnetbbwallet from './testnet-bbwallet';
-import livenetbbwallet from './livenet-bbwallet';
 import livenetbyteballtalk from './livenet-byteballtalk';
+import livenetbbwallet from './livenet-bbwallet';
+import testnetbbwallet from './testnet-bbwallet';
 export {
-  testnetbbwallet,
+  livenetbyteballtalk,
   livenetbbwallet,
-  livenetbyteballtalk
+  testnetbbwallet,
 };
