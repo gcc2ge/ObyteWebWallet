@@ -6,7 +6,7 @@ const state = {
     auth: false,
     password: '',
     port: 80,
-    service: 'byteball.org/bb',
+    service: 'hub.byteballtalk.cn/bb',
     type: {
       blockExplorerAddr: 'https://explorer.byteball.org/#[[address]]',
       blockExplorerTX: 'https://explorer.byteball.org/#[[txHash]]',
@@ -17,7 +17,7 @@ const state = {
       name_long: 'livenet',
       tokens: []
     },
-    url: 'wss://byteball.org/bb',
+    url: 'wss://hub.byteballtalk.cn/bb',
     username: ''
   },
   wallet: null,
