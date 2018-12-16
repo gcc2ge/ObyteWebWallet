@@ -6,7 +6,7 @@
         <div class="form-block amount-to-address">
           <div class="amount">
             <div class="title">
-              <h4>Amount</h4>
+              <h4>{{ $t("generateInfo.amount") }}</h4>
             </div>
             <currency-picker
               :currency="coinType"
@@ -26,7 +26,7 @@
           </div>
           <div class="to-address">
             <div class="title">
-              <h4>To Address</h4>
+              <h4>{{ $t("generateInfo.toAddress") }}</h4>
               <blockie
                 v-show="(address !== '' || resolvedAddress !== '') && !validAddress"
                 :address="address !== '' ? address: resolvedAddress !== ''? resolvedAddress:''"
@@ -34,7 +34,7 @@
                 height="22px"/>
               <p
                 class="copy-button linker-1 prevent-user-select"
-                @click="copyToAddress">Copy</p>
+                @click="copyToAddress">{{ $t("generateInfo.copy") }}</p>
             </div>
             <div class="the-form address-block">
               <textarea
@@ -89,7 +89,7 @@
         <div
           :class="[!validAddress ? 'disabled': '' ,'submit-button large-round-button-green-filled']"
           @click="next">
-          Generate
+          {{ $t("generateInfo.generate") }}
         </div>
         <interface-bottom-text
           link="/"
@@ -170,7 +170,7 @@ export default {
     },
     toAmt(newVal) {
       this.calculateAmount(newVal);
-//      console.info(`amount ${this.amount} parse ${this.parsedBalance}`)
+      console.info(`amount ${this.amount} parse ${this.parsedBalance}`)
     },
     selectedCurrency(newVal) {
       this.selectedCurrency = newVal;

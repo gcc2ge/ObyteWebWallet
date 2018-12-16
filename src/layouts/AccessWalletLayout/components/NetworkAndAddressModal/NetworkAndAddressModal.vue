@@ -353,7 +353,9 @@
         };
       },
       async getBalance(address){
-        if(this.selecteDPath != ''){
+        var currNet = this.$store.state.network.type.name;
+        var selectNet = this.selecteDPath.label.toUpperCase();
+        if(this.selecteDPath != '' && currNet != selectNet){
           const network = this.$store.state.Networks[this.selecteDPath.label.toUpperCase()][0];
           const hostUrl = url.parse(network.url);
           const newClient=new byteball.Client(
@@ -361,12 +363,14 @@
               hostUrl.pathname
               }`, network.type.name == "LIVENET" ? false : true);
           this.$store.dispatch('switchNetwork', network);
+          this.$store.dispatch('setClientInstance');
         }
 
         const client = this.$store.state.client;
         var arr=[address];
         return new Promise((resolve,reject)=>{
           client.api.getBalances(arr, function (err, result) {
+//            console.info(`err ${JSON.stringify(err)} result ${JSON.stringify(result)}`)
             if (err || result=={}) {resolve(0)}
             else{
               var balance = result[address].base.stable;

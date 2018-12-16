@@ -11,6 +11,8 @@ import interfaceTranslations from './interface/en_US';
 import team from './team/en_US';
 import popover from './popover/en_US';
 
+import generateInfo from './generate-info/en_US'
+
 const en_US = {
   common: common,
   header: header,
@@ -22,6 +24,7 @@ const en_US = {
   accessWallet: accessWallet,
   createWallet: createWallet,
   interface: interfaceTranslations,
-  popover: popover
+  popover: popover,
+  generateInfo:generateInfo
 };
 export default en_US;

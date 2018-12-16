@@ -7,9 +7,11 @@ import privacyPolicy from './privacy-policy/en_US';
 import termsAndConditions from './terms-and-conditions/en_US';
 import createWallet from './create-wallet/zh_Hans';
 import accessWallet from './access-wallet/zh_Hans';
-import interfaceTranslations from './interface/en_US';
+import interfaceTranslations from './interface/zh_Hans';
 import team from './team/en_US';
 import popover from './popover/en_US';
+
+import generateInfo from './generate-info/zh_Hans';
 
 const zh_Hans_CN = {
   common: common,
@@ -22,6 +24,7 @@ const zh_Hans_CN = {
   accessWallet: accessWallet,
   createWallet: createWallet,
   interface: interfaceTranslations,
-  popover: popover
+  popover: popover,
+  generateInfo: generateInfo
 };
 export default zh_Hans_CN;

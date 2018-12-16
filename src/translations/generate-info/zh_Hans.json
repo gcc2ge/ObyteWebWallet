@@ -1,0 +1,11 @@
+{
+  "fromAddress": "发送地址",
+  "toAddress": "接收地址",
+  "amount": "金额",
+  "continue": "继续",
+  "generate": "生成",
+  "signedTransaction": "签名的交易",
+  "sendTransaction": "发送交易",
+  "clear": "清除",
+  "copy": "复制"
+}

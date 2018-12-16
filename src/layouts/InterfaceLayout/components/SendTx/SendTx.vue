@@ -7,14 +7,14 @@
       <div class="send-form">
         <div class="title-container">
           <div class="title">
-            <div><h4>Signed Transaction</h4></div>
+            <div><h4>{{ $t("generateInfo.signedTransaction") }}</h4></div>
             <div class="form-controller">
               <p
                 class="linker-1 prevent-user-select"
-                @click="deleteTxHex">Clear</p>
+                @click="deleteTxHex">{{ $t("generateInfo.clear") }}</p>
               <p
                 class="linker-1 prevent-user-select"
-                @click="copyTxHex">Copy</p>
+                @click="copyTxHex">{{ $t("generateInfo.copy") }}</p>
             </div>
           </div>
         </div>
@@ -31,7 +31,7 @@
         <div
           class="submit-button large-round-button-green-filled clickable"
           @click="sendTx">
-          Send Transaction
+          {{ $t("generateInfo.sendTransaction") }}
         </div>
         <interface-bottom-text
           :link="'/'"

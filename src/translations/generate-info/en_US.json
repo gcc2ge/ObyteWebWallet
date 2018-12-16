@@ -1,0 +1,11 @@
+{
+  "fromAddress": "From Address",
+  "toAddress": "To Address",
+  "amount": "Amount",
+  "continue": "Continue",
+  "generate": "Generate",
+  "signedTransaction": "Signed Transaction",
+  "sendTransaction": "Send Transaction",
+  "clear": "Clear",
+  "copy": "Copy"
+}
