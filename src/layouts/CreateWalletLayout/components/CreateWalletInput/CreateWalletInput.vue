@@ -36,7 +36,6 @@
     <!--=== MEW custom form ========================================-->
 
     <button
-      :disabled="value.length === 0 && value.length < 9 && strength === ''"
       class="next-button large-round-button-green-filled"
       type="submit"
       @click.prevent="switcher(param)">
