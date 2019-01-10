@@ -131,10 +131,24 @@
         var arr=[address];
 
         client.api.getBalances(arr, function (err, result) {
-          if (!result) return;
-          if (err) console.info(`error ${JSON.stringify(err)}`);
-          self.balance = Utils.formatAmount(result[address].base.stable,"mega");
-          this.$store.dispatch('setAccountBalance', self.balance);
+          console.info(`err ${JSON.stringify(err)}`)
+          console.info(`result ${JSON.stringify(result)}`)
+          if (result){
+            self.balance = Utils.formatAmount(result[address].base.stable,"mega");
+            self.$store.dispatch('setAccountBalance', self.balance);
+          }else{
+            self.balance = self.$store.state.account.balance;
+//            console.info(`error ${JSON.stringify(err)}`);
+          }
+//          if (err != {} && err != null) {
+//            self.balance=undefined;
+//            console.info(`error ${JSON.stringify(err)}`);
+//          } else if (!result) {
+//            self.balance=0;
+//          } else{
+//            self.balance = Utils.formatAmount(result[address].base.stable,"mega");
+//            this.$store.dispatch('setAccountBalance', self.balance);
+//          }
         });
         /*const web3 = this.$store.state.web3;
         web3.eth
@@ -208,8 +222,8 @@
 //              this.matchWeb3WalletNetwork();
 //            }
             this.getBalance();
-            this.pollBalance = setInterval(this.getBalance, 100);
-            this.pollBlock = setInterval(this.getBlock, 100);
+            this.pollBalance = setInterval(this.getBalance, 1000);
+            this.pollBlock = setInterval(this.getBlock, 1000);
 //            this.setTokens();
 //            this.setENS();
           }
