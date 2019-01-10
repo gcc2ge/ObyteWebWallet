@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>
-      MyEtherWallet is not a web wallet. You don't have a login, and nothing ever
+      ByteballWallet is not a web wallet. You don't have a login, and nothing ever
       gets saved to our servers. It is simply an interface that allows you to
       interact with the blockchain.
     </p>
