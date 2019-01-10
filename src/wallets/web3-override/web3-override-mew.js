@@ -118,7 +118,7 @@ export default function web3OverrideMew(client,
     async sendSignedTransaction(signedTx) {
       return new Promise((resolve, reject) => {
         signedTx = JSON.parse(signedTx);
-        console.info(`${typeof signedTx} ${signedTx}`)
+        // console.info(`${typeof signedTx} ${signedTx}`)
         const params = {
           unit: signedTx
         };

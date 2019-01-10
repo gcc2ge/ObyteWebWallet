@@ -168,8 +168,12 @@ export default {
         this.validAddress = false;
       }
     },
-    toAmt(newVal) {
+    async toAmt(newVal) {
       this.calculateAmount(newVal);
+      const rawBalance = await this.$store.state.client.bb.getBalance(
+        this.$store.state.wallet.getAddressString()
+      );
+      this.parsedBalance = rawBalance;
       console.info(`amount ${this.amount} parse ${this.parsedBalance}`)
     },
     selectedCurrency(newVal) {

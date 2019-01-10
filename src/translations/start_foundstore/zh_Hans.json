@@ -1,0 +1,9 @@
+{
+  "about": "About ByteballWallet",
+  "title": "我的资金储存在哪里？",
+  "content": "你的通证和代币没有在Byteball钱包上。就像它们不在您的硬件钱包，MetaMask或区块链资源管理器上一样。 区块链本身的所有资金。 这意味着我们无法控制它们。 我们只是与他们互动的门户。",
+  "warning": "警告：ByteballWallet无法控制您的资金。 是由你控制！",
+  "blockchain_title": "什么是区块链？",
+  "blockchain_content_1": "The term 'blockchain' refers to a public, decentalized spreadsheet, similar to a ledger.  It's maintained by people all over the world, who remotely mine  transaction to make them a park of the blockchain, permanently.",
+  "blockchain_content_2": "When you use ByteballWallet, you are accessing the blockchain directly. We are not responsible  for theft caused by user error. Please do your research, knowledge is power! Know  more about Blockchain"
+}

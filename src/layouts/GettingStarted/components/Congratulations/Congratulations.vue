@@ -4,7 +4,7 @@
     <div class="block-progressbar">
       <dir class="block-progressbar__container">
         <div class="block-progressbar__title">
-          Congratulations!
+          {{ $t("start_congratulation.congratulations") }}
         </div>
         <div class="block-progressbar__progressbar">
           <div :class="progressBarValue"/>
@@ -14,13 +14,12 @@
           <img src="~@/assets/images/icons/drink.svg">
 
           <p>
-            You have read through our warning slides, and you're ready to
-            dive in. If you want to know more, please head to our
-            <a href="">Help Center</a>. We have many articles to assist you!
+            {{ $t("start_congratulation.content") }}
+            <a href="">{{ $t("start_congratulation.help_center") }}</a>. {{ $t("start_congratulation.help") }}
           </p>
 
           <router-link to="/create-wallet">
-            <div class="mid-round-button-green-filled-green-border">Get Started</div>
+            <div class="mid-round-button-green-filled-green-border">{{ $t("start_congratulation.start") }}</div>
           </router-link>
 
         </div>

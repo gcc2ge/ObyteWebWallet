@@ -1,0 +1,15 @@
+{
+  "about": "About Security",
+  "some_tips": "Some helpful tips",
+  "tips_one_title": "Never give your Private Key to anyone",
+  "tips_one_content": "That includes your seystore file and mnemonic phrase.",
+  "tips_two_title": "Don't trust any free bytes",
+  "tips_two_content": "If they're giving away free bytes, it's not real. If they email you saying they're us,  it's not real. If they ask for your private key, it's not real.",
+  "tips_three_title": "Bookmark our website",
+  "tips_three_content": "Always check the URL: wallet.byteballtalk.com.",
+  "tips_four_title": "Feel free to contact us",
+  "tips_four_content": "Please feel free to contact us. Our email is",
+  "tips_four_content_link": "mailto:support@byteballtalk.com",
+  "tips_four_content_link_content": "support@byteballtalk.com",
+  "tips_four_content_1": "We're here to help."
+}

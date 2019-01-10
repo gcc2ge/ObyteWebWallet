@@ -1,0 +1,7 @@
+{
+  "about": "About ByteballWallet",
+  "title": "What is ByteballWallet?",
+  "content": "ByteballWallet is a free, open-source, client-side interface.  ByteballWallet allows you to interact directly with the blockchain, while  remaining in full control of your keys and funds.",
+  "content_1": "Did you read that? YOU are the one who is in control. ByteballWallet is not  a bank or exchange, we are an interface. This means we don't hold  your keys or information, but it also means we can't access accounts,  recover keys, reset passwords, or reverse transactions.",
+  "warning": "WARNING: You And Only You Are Responsible For Your Security."
+}

@@ -4,22 +4,21 @@
     <div class="block-progressbar">
       <dir class="block-progressbar__container">
         <div class="block-progressbar__title">
-          About Security
+          {{ $t("start_losekey.about") }}
         </div>
         <div class="block-progressbar__progressbar">
           <div :class="progressBarValue"/>
         </div>
         <div class="block-progressbar__content">
-          <h4>What if I lose my keys or password?</h4>
+          <h4>{{ $t("start_losekey.title") }}</h4>
           <p>
-            We can not recover your information for you. If you lose your information,
-            it's <span>GONE FOREVER</span>. MEW doesn't store any data. After you've
-            received your keys and set up a password, we strongly suggest you:
+            {{ $t("start_losekey.content") }}
+            <span>{{ $t("start_losekey.content_emphasize") }}</span>{{ $t("start_losekey.content_1") }}
           </p>
 
           <ul>
-            <li>Write Your Keys And Password Down. Keep Them Safe.</li>
-            <li>Don't Store Your Keys And Password on Your Computer or Phone.</li>
+            <li>{{ $t("start_losekey.tip_1") }}</li>
+            <li>{{ $t("start_losekey.tip_2") }}</li>
           </ul>
 
           <div class="block-progressbar__warning hidden"/>

@@ -1,0 +1,15 @@
+{
+  "about": "About Security",
+  "some_tips": "一些有用的提示",
+  "tips_one_title": "切勿将私钥交给任何人",
+  "tips_one_content": "这包括你的keystore文件和助记短语。",
+  "tips_two_title": "Don't trust any free bytes",
+  "tips_two_content": "If they're giving away free bytes, it's not real. If they email you saying they're us,  it's not real. If they ask for your private key, it's not real.",
+  "tips_three_title": "收藏我们的网站",
+  "tips_three_content": "请务必查看网址：https://wallet.byteballtalk.com。",
+  "tips_four_title": "欢迎与我们联系",
+  "tips_four_content": "请随时与我们联系。 我们的电子邮件是：support@byteballtalk.com",
+  "tips_four_content_link": "mailto:support@byteballtalk.com",
+  "tips_four_content_link_content": "support@byteballtalk.com",
+  "tips_four_content_1": "We're here to help."
+}

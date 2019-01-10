@@ -4,52 +4,47 @@
     <div class="block-progressbar">
       <dir class="block-progressbar__container">
         <div class="block-progressbar__title">
-          About Security
+          {{ $t("start_tips.about") }}
         </div>
         <div class="block-progressbar__progressbar">
           <div :class="progressBarValue"/>
         </div>
         <div class="block-progressbar__content">
-          <h4>Some helpful tips</h4>
+          <h4>{{ $t("start_tips.some_tips") }}</h4>
 
           <div class="tips">
             <div>
-              <h5>Never give your Private Key to anyone</h5>
-              <p>That includes your seystore file and mnemonic phrase.</p>
+              <h5>{{ $t("start_tips.tips_one_title") }}</h5>
+              <p>{{ $t("start_tips.tips_one_content") }}</p>
             </div>
             <div>
-              <h5>Don't trust any free ETH</h5>
+              <h5>{{ $t("start_tips.tips_two_title") }}</h5>
               <p>
-                If they're giving away free ETH, it's not real. If they email you saying they're us,
-                it's not real. If they ask for your private key, it's not real.
+                {{ $t("start_tips.tips_two_content") }}
               </p>
             </div>
             <div>
-              <h5>Bookmark our website</h5>
+              <h5>{{ $t("start_tips.tips_three_title") }}</h5>
               <p>
-                Always check the URL for our 'MyEtherWallet Inc [US]' certification. And install
-                our <a
-                  href="https://chrome.google.com/webstore/detail/myetherwallet/nlbmnnijcnlegkjjpcfjclmcfggfefdm?hl=en"
-                  target="_blank">Chrome extension</a>
-                for an extra layer of security!
+                {{ $t("start_tips.tips_three_content") }}
               </p>
             </div>
+            <!--<div>-->
+              <!--<h5>Buy a hardware wallet</h5>-->
+              <!--<p>-->
+                <!--We have many great hardware wallets listed on our interface.-->
+                <!--They're only about $100. It's worth for your security.-->
+                <!--Buy one <a-->
+                  <!--href=""-->
+                  <!--target="_blank">here</a>.-->
+              <!--</p>-->
+            <!--</div>-->
             <div>
-              <h5>Buy a hardware wallet</h5>
+              <h5>{{ $t("start_tips.tips_four_title") }}</h5>
               <p>
-                We have many great hardware wallets listed on our interface.
-                They're only about $100. It's worth for your security.
-                Buy one <a
-                  href=""
-                  target="_blank">here</a>.
-              </p>
-            </div>
-            <div>
-              <h5>Feel free to contact us</h5>
-              <p>
-                Please feel free to contact us. Our email is
-                <a href="mailto:support@myetherwallet.com">support@myetherwallet.com</a>.
-                We're here to help.
+                {{ $t("start_tips.tips_four_content") }}
+                <a href="mailto:support@byteballtalk.com">{{ $t("start_tips.tips_four_content_link_content") }}</a>.
+                {{ $t("start_tips.tips_four_content_1") }}
               </p>
             </div>
           </div>

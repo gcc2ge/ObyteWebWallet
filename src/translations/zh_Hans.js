@@ -10,6 +10,12 @@ import accessWallet from './access-wallet/zh_Hans';
 import interfaceTranslations from './interface/zh_Hans';
 import team from './team/en_US';
 import popover from './popover/en_US';
+import start_congratulation from './start_congratulation/zh_Hans';
+import start_tips from './start_tips/zh_Hans';
+import start_losekey from './start_losekey/zh_Hans';
+import start_introduce from './start_introduce/zh_Hans';
+import start_tutoris from './start_tutoris/zh_Hans';
+import start_foundstore from './start_foundstore/zh_Hans';
 
 import generateInfo from './generate-info/zh_Hans';
 
@@ -25,6 +31,12 @@ const zh_Hans_CN = {
   createWallet: createWallet,
   interface: interfaceTranslations,
   popover: popover,
-  generateInfo: generateInfo
+  generateInfo: generateInfo,
+  start_congratulation: start_congratulation,
+  start_tips: start_tips,
+  start_losekey: start_losekey,
+  start_introduce: start_introduce,
+  start_tutoris: start_tutoris,
+  start_foundstore: start_foundstore,
 };
 export default zh_Hans_CN;
