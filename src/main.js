@@ -21,6 +21,8 @@ import EnsResolver from '@/directives/EnsResolver';
 // etc
 import languages from './translations';
 
+import ba from 'vue-ba'
+
 Vue.prototype.$eventHub = new Vue();
 
 // Regular Components
@@ -53,6 +55,9 @@ Vue.filter('capitalize', function(value) {
   value = value.toString();
   return value.charAt(0).toUpperCase() + value.slice(1);
 });
+
+Vue.use(ba, "c10817966533b78d015ee127d71c9793");
+Vue.use(ba, { siteId: "c10817966533b78d015ee127d71c9793" });
 
 /* eslint-disable no-new */
 new Vue({
