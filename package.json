@@ -17,20 +17,23 @@
     "update:lists": "node fetchEthListData.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "bbwallet": "file:/Users/shouhewu/devWorkspace/bb_lib/bbwallet",
     "bip38": "^2.0.2",
     "bitcore-lib": "0.15.0",
     "bitcore-mnemonic": "^1.5.0",
+    "bitcore-wallet-client": "file:/Users/shouhewu/devWorkspace/bb_lib/bitcore-wallet-client",
     "byteball": "^0.1.1",
     "lodash": "^4.6.1",
+    "moment": "^2.22.2",
     "preconditions": "^1.0.8",
     "sjcl": "^1.0.2",
     "vue": "^2.5.17",
+    "vue-ba": "^1.2.5",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
     "websocket": "^1.0.28",
-    "wif": "^2.0.6",
-    "bbwallet": "file:/Users/shouhewu/devWorkspace/bb_lib/bbwallet",
-    "bitcore-wallet-client": "file:/Users/shouhewu/devWorkspace/bb_lib/bitcore-wallet-client"
+    "wif": "^2.0.6"
   },
   "devDependencies": {
     "@ledgerhq/hw-app-eth": "^4.23.0",
