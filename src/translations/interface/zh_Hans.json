@@ -39,5 +39,19 @@
   "txNetworkTitle": "网络",
   "txSideMenuTitle": "发送",
   "txSideMenuContract": "合约",
-  "txSideMenuMessage": "消息"
+  "txSideMenuMessage": "消息",
+  "p2pSportsBetting":"体育比赛竞猜",
+  "p2pSportsBettingDesc":"体育比赛竞猜",
+  "blackbyteTrade":"黑球交易网站",
+  "blackbyteTradeDesc":"黑球交易网站",
+  "byteballStats":"字节雪球统计",
+  "byteballStatsDesc":"字节雪球统计",
+  "byteballMarket":"雪球资产生成",
+  "byteballMarketDesc":"雪球资产生成",
+  "bbConvert":"雪球货币转换",
+  "bbConvertDesc":"雪球货币转换",
+  "unstoppableData":"不停止的雪球世界",
+  "unstoppableDataDesc":"不停止的雪球世界",
+  "whiteLittle":"小白链",
+  "whiteLittleDesc":"小白链"
 }

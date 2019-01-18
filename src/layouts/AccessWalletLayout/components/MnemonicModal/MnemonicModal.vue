@@ -66,7 +66,7 @@ export default {
   },
   data() {
     return {
-      mnemonicPhrase: ['ivory', 'fiction', 'brother', 'proud', 'multiply', 'air', 'surprise', 'click', 'female', 'rhythm', 'catch', 'ask'],
+      mnemonicPhrase: [].fill(' ', 0, 11),
       mnemonic24: false,
       mnemonicSize: 12
     };

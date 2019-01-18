@@ -131,8 +131,8 @@
         var arr=[address];
 
         client.api.getBalances(arr, function (err, result) {
-          console.info(`err ${JSON.stringify(err)}`)
-          console.info(`result ${JSON.stringify(result)}`)
+//          console.info(`err ${JSON.stringify(err)}`)
+//          console.info(`result ${JSON.stringify(result)}`)
           if (result){
             self.balance = Utils.formatAmount(result[address].base.stable,"mega");
             self.$store.dispatch('setAccountBalance', self.balance);

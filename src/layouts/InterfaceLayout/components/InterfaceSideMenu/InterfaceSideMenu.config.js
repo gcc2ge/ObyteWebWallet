@@ -54,7 +54,15 @@ export default {
         '/interface/dapps/register-domain/forbidden',
         '/interface/dapps/register-domain/auction',
         '/interface/dapps/register-domain/confirm',
-        '/interface/dapps/domain-sale'
+        '/interface/dapps/domain-sale',
+        '/interface/dapps/p2p-sports-betting',
+
+        '/interface/dapps/blackbyte-trade',
+        '/interface/dapps/byteball-stats',
+        '/interface/dapps/byteball-market',
+        '/interface/dapps/bbConvert',
+        '/interface/dapps/unstoppable-data',
+        '/interface/dapps/white-little',
       ],
       icons: {
         active: require('@/assets/images/sidemenu/dapps-active.svg'),

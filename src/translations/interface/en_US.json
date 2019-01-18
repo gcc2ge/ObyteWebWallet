@@ -39,5 +39,19 @@
   "txNetworkTitle": "Network",
   "txSideMenuTitle": "Send",
   "txSideMenuContract": "Contract",
-  "txSideMenuMessage": "Message"
+  "txSideMenuMessage": "Message",
+  "p2pSportsBetting":"P2P Sports Betting",
+  "p2pSportsBettingDesc":"P2P Sports Betting",
+  "blackbyteTrade":"Blackbyte trade",
+  "blackbyteTradeDesc":"Blackbyte trade",
+  "byteballStats":"Byteball Stats",
+  "byteballStatsDesc":"Byteball Stats",
+  "byteballMarket":"Byteball Market",
+  "byteballMarketDesc":"Byteball Market",
+  "bbConvert":"BB-Convert",
+  "bbConvertDesc":"BB-Convert",
+  "unstoppableData":"Unstoppable data",
+  "unstoppableDataDesc":"Unstoppable data",
+  "whiteLittle":"WhiteLittle",
+  "whiteLittleDesc":"WhiteLittle"
 }

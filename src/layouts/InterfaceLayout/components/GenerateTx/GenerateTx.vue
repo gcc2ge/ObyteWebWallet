@@ -174,7 +174,7 @@ export default {
         this.$store.state.wallet.getAddressString()
       );
       this.parsedBalance = rawBalance;
-      console.info(`amount ${this.amount} parse ${this.parsedBalance}`)
+//      console.info(`amount ${this.amount} parse ${this.parsedBalance}`)
     },
     selectedCurrency(newVal) {
       this.selectedCurrency = newVal;
