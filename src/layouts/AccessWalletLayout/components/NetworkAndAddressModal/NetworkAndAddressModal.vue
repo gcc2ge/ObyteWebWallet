@@ -140,7 +140,6 @@
 
 <script>
   import CustomerSupport from '@/components/CustomerSupport';
-  import * as unit from 'ethjs-unit';
   import Utils from 'bitcore-wallet-client/lib/common/utils'
   import ByteBallWallet from 'bbwallet/wallet';
   import url from 'url';

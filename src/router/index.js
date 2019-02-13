@@ -11,12 +11,9 @@ import NotFoundLayout from '@/layouts/NotFoundLayout';
 import GettingStarted from '@/layouts/GettingStarted';
 
 import DappsContainer from '@/layouts/InterfaceLayout/containers/DappsContainer';
-import DeployContractContainer from '@/layouts/InterfaceLayout/containers/DeployContractContainer';
-import InteractWithContractContainer from '@/layouts/InterfaceLayout/containers/InteractWithContractContainer';
 import SendCurrencyContainer from '@/layouts/InterfaceLayout/containers/SendCurrencyContainer';
 import SendOfflineContainer from '@/layouts/InterfaceLayout/containers/SendOfflineContainer';
 import SignMessageContainer from '@/layouts/InterfaceLayout/containers/SignMessageContainer';
-import VerifyMessageContainer from '@/layouts/InterfaceLayout/containers/VerifyMessageContainer';
 
 import { router as routerConfig } from '@/configs/build';
 import dapps from '@/dapps/routes';
@@ -79,16 +76,6 @@ const router = [
         component: DappsContainer
       },
       {
-        path: 'deploy-contract',
-        name: 'Deploy Contract',
-        component: DeployContractContainer
-      },
-      {
-        path: 'interact-with-contract',
-        name: 'Interact With Contract',
-        component: InteractWithContractContainer
-      },
-      {
         path: 'send-transaction',
         name: 'Send Tx',
         component: SendCurrencyContainer
@@ -102,11 +89,6 @@ const router = [
         path: 'sign-message',
         name: 'Sign Message',
         component: SignMessageContainer
-      },
-      {
-        path: 'verify-message',
-        name: 'Verify Message',
-        component: VerifyMessageContainer
       }
     ]
   }

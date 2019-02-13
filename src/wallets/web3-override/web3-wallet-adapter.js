@@ -1,4 +1,3 @@
-import * as ethUtil from 'ethereumjs-util';
 import * as Utils from 'bbwallet/utils';
 
 export default class Web3WalletAdapter {
@@ -52,10 +51,6 @@ export default class Web3WalletAdapter {
     return address;
   }
 
-  getChecksumAddressString() {
-    return ethUtil.toChecksumAddress(this.address);
-  }
-
   wif(){
     return Utils.Wif(this.wallet.getPrivateKey());
   }
@@ -106,10 +101,6 @@ export default class Web3WalletAdapter {
 
   get isHardware() {
     return this.isHardwareWallet;
-  }
-
-  get checkSumAddress() {
-    return ethUtil.toChecksumAddress(this.address);
   }
 
   // ============== (End) Getters  ======================

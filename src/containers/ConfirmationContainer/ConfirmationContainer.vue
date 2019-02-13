@@ -35,7 +35,6 @@
 </template>
 
 <script>
-import * as unit from 'ethjs-unit';
 import BN from 'bignumber.js';
 import ConfirmModal from './components/ConfirmModal';
 import SuccessModal from './components/SuccessModal';
@@ -222,18 +221,10 @@ export default {
     },
     parseRawTx(tx) {
       this.raw = tx;
-//      this.nonce = +tx.nonce;
-//      this.data = tx.data;
-//      this.gasLimit = +tx.gas;
+
       this.toAddress = tx["outputs"][0].address;
       this.amount = +tx["outputs"][0].amount;
-//      this.transactionFee = Number(
-//        unit.fromWei(new BN(tx.gasPrice).times(tx.gas).toString(), 'ether')
-//      );
-//      this.ens = {};
-//      if (tx.hasOwnProperty('ensObj')) {
-//        this.ens = Object.assign({}, tx.ensObj);
-//      }
+
        this.signedTx = this.signedTxObject.rawTransaction
 
     },
@@ -260,13 +251,11 @@ export default {
       this.addressValid = true;
       this.amount = 0;
       this.amountValid = true;
-//      this.nonce = 0;
-//      this.gasLimit = 21000;
+
       this.data = '0x';
       this.gasAmount = this.$store.state.gasPrice;
       this.parsedBalance = 0;
       this.toAddress = '';
-//      this.transactionFee = 0;
       this.selectedCurrency = { symbol: 'MB', name: 'Byteball' };
       this.raw = {};
       this.signedTx = '';

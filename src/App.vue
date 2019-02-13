@@ -13,8 +13,6 @@ import HeaderContainer from '@/containers/HeaderContainer';
 import ConfirmationContainer from '@/containers/ConfirmationContainer';
 import store from 'store';
 import nodeList from '@/networks';
-import Web3 from 'web3';
-//import ENS from 'ethereum-ens';
 import url from 'url';
 import byteball from 'byteball';
 
@@ -44,7 +42,6 @@ export default {
 //    const gasPrice =
 //      store.get('gasPrice') !== undefined ? store.get('gasPrice') : 41;
     const state = {
-//      web3: newWeb3,
       client:newClient,
       network: network,
       customPaths:

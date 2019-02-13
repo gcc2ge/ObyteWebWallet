@@ -81,8 +81,6 @@ import CurrencyPicker from '../CurrencyPicker';
 import SignedTxModal from '../../components/SignedTxModal';
 import Blockie from '@/components/Blockie';
 // eslint-disable-next-line
-const EthTx = require('ethereumjs-tx')
-import * as unit from 'ethjs-unit';
 import Utils from 'bitcore-wallet-client/lib/common/utils'
 import Constants from 'bitcore-wallet-client/lib/common/constants'
 
@@ -167,19 +165,6 @@ export default {
         outputs: [
          {address: this.address, amount: this.amount}
         ]
-        /*from: this.$store.state.wallet.getAddressString(),
-        gas: this.localGas,
-        value: unit.toWei(this.toAmt, 'ether'),
-        data: this.toData,
-        nonce: this.locNonce,
-        gasPrice: Number(unit.toWei(this.$store.state.gasPrice, 'gwei')),
-        to:
-          this.resolvedAddress !== ''
-            ? this.resolvedAddress
-            : this.address !== ''
-              ? this.address
-              : '',
-        chainId: this.$store.state.network.type.chainID || 1*/
       };
       this.$store.state.client.bb.signTransaction(raw).then(signedTx => {
         this.$emit('createdRawTx', signedTx.rawTransaction);

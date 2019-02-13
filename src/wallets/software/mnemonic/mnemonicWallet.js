@@ -1,9 +1,5 @@
-import EthereumjsTx from 'ethereumjs-tx';
-import * as ethUtil from 'ethereumjs-util';
-import * as HDKey from 'hdkey';
 import HardwareWalletInterface from './hardwareWallet-interface';
 import {getDerivationPath, paths} from './deterministicWalletPaths';
-import * as bip39 from 'bip39';
 
 import * as Utils from 'bbwallet/utils'
 import BB_Mnemonic from 'bitcore-mnemonic'
@@ -90,7 +86,7 @@ export default class MnemonicWallet extends HardwareWalletInterface {
 
   getAddressString() {
     if (this.wallet) {
-      return ethUtil.toChecksumAddress(this.getAddress());
+      return this.getAddress();
     }
     return null;
   }
@@ -242,56 +238,6 @@ export default class MnemonicWallet extends HardwareWalletInterface {
     this.numWallets = start + limit;
   }
 
-  /*async signTxMnemonic(rawTx) {
-    try {
-      if (!this.wallet)
-        throw new Error('no wallet present. wallet not have been decrypted');
-      const txData = {
-        nonce: rawTx.nonce,
-        gasPrice: rawTx.gasprice,
-        gas: rawTx.gas,
-        to: rawTx.to,
-        value: rawTx.value,
-        data: rawTx.data,
-        chainId: rawTx.chainId
-      };
-      txData.data = txData.data === '' ? '0x' : txData.data;
-      const tx = new EthereumjsTx(txData);
-      tx.sign(Buffer.from(this.wallet.privKey, 'hex'));
-      txData.rawTx = JSON.stringify(txData);
-      return {
-        rawTx: txData,
-        messageHash: tx.hash(), // figure out what exactly web3 is putting here
-        v: tx.v,
-        r: tx.r,
-        s: tx.s,
-        rawTransaction: `0x${tx.serialize().toString('hex')}`
-      };
-    } catch (e) {
-      return e;
-    }
-  }*/
-
-  /*async signMessageMnemonic(stringMessage) {
-    try {
-      if (!this.wallet)
-        throw new Error(
-          'no wallet present. wallet may not have been decrypted'
-        );
-
-      const msg = ethUtil.hashPersonalMessage(ethUtil.toBuffer(stringMessage));
-      const signed = ethUtil.ecsign(msg, this.wallet.privKey);
-      const combined = Buffer.concat([
-        Buffer.from(signed.r),
-        Buffer.from(signed.s),
-        Buffer.from([signed.v])
-      ]);
-      const combinedHex = combined.toString('hex');
-      return '0x' + combinedHex;
-    } catch (e) {
-      return e;
-    }
-  }*/
 
   // (End) Internal methods underlying wallet usage methods
   // (Start) Internal utility methods

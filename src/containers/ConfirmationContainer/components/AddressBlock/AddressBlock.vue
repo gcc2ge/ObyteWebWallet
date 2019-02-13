@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import web3 from 'web3';
 import Utils from 'bitcore-wallet-client/lib/common/utils'
 export default {
   props: {
@@ -54,7 +53,6 @@ export default {
   },
   methods: {
     converter(num) {
-//      return web3.utils.fromWei(num.toString(), 'ether');
 
       return Utils.formatAmount(num,"mega")
     }

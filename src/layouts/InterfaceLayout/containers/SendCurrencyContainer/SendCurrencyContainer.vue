@@ -166,7 +166,6 @@ import CurrencyPicker from '../../components/CurrencyPicker';
 import InterfaceBottomText from '@/components/InterfaceBottomText';
 import Blockie from '@/components/Blockie';
 import BigNumber from 'bignumber.js';
-import * as unit from 'ethjs-unit';
 
 export default {
   components: {
