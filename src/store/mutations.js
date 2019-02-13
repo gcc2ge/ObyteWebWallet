@@ -35,9 +35,6 @@ const SET_ACCOUNT_BALANCE = function(state, balance) {
   state.account.balance = balance;
 };
 
-// const SET_ENS = function(state, ens) {
-//   state.ens = ens;
-// };
 
 const SET_GAS_PRICE = function(state, val) {
   state.gasPrice = val;
@@ -70,7 +67,6 @@ export default {
   INIT_STATES,
   SET_ACCOUNT_BALANCE,
   SET_GAS_PRICE,
-  // SET_ENS,
   SET_WEB3_PROVIDER_WALLET,
   SET_CLIENT_INSTANCE,
   SWITCH_NETWORK,

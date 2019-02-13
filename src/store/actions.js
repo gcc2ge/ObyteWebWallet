@@ -1,12 +1,10 @@
 import {override, WalletWrapper} from '@/wallets';
 import url from 'url';
-import web3 from 'web3';
 import byteball from 'byteball';
 import moment from "moment"
 
 const addNotification = function ({commit, state}, val) {
   const address = val[0];
-  // const address = web3.utils.toChecksumAddress(val[0]);
   const newNotif = {};
   Object.keys(state.notifications).forEach(item => {
     newNotif[item] = state.notifications[item];
@@ -85,44 +83,16 @@ const setClientInstance = function ({dispatch, commit, state}, provider) {
       dispatch
     })
   );
-  /*if (provider && provider.currentProvider) {
-    commit(
-      'SET_WEB3_INSTANCE',
-      override(
-        new web3(provider.currentProvider),
-        state.wallet,
-        this._vm.$eventHub,
-        {state, dispatch}
-      )
-    );
-  } else {
-    const hostUrl = url.parse(state.network.url);
-    const web3Instance = new byteball.Client(
-      `${hostUrl.protocol}//${hostUrl.hostname}${
-        hostUrl.pathname
-        }`, true);
-
-    commit(
-      'SET_WEB3_INSTANCE',
-      override(web3Instance, state.wallet, this._vm.$eventHub, {
-        state,
-        dispatch
-      })
-    );
-  }*/
 };
 
 const switchNetwork = function ({commit}, networkObj) {
   // check if wallet is hardware.  if true, check if it supports this network. if not, do nothing
   commit('SWITCH_NETWORK', networkObj);
 };
-/*const setENS = function ({commit}, ens) {
-  commit('SET_ENS', ens);
-};*/
+
 
 const updateNotification = function ({commit, state}, val) {
   // address, index, object
-  // const address = web3.utils.toChecksumAddress(val[0]);
   const address = val[0];
   const newNotif = {};
   Object.keys(state.notifications).forEach(item => {
@@ -144,7 +114,6 @@ export default {
   setGasPrice,
   setWeb3Wallet,
   setState,
-  // setENS,
   setClientInstance,
   switchNetwork,
   updateNotification

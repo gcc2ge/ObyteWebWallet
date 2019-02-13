@@ -55,36 +55,6 @@
         </div>
       </div>
 
-      <!--<div class="send-form">
-        <div class="title-container">
-          <div class="title">
-            <div class="title-helper">
-              <h4>Data</h4>
-              <popover :popcontent="$t('popover.whatIsDataContent')"/>
-            </div>
-          </div>
-        </div>
-        <div class="the-form gas-amount">
-          <input
-            v-model="toData"
-            type="number"
-            name=""
-            placeholder="e.g. 0x65746865726d696e652d657531" >
-          <div class="good-button-container">
-            <i
-              class="fa fa-check-circle good-button not-good"
-              aria-hidden="true"/>
-          </div>
-        </div>
-      </div>-->
-      <!--<tx-speed-input
-        :nonce="nonce"
-        :data="toData"
-        :value="toAmt"
-        :to-address="address"
-        :gas-limit="gasLimit"
-        @nonceUpdate="nonceUpdated"
-        @gasLimitUpdate="gasLimitUpdated"/>-->
       <div class="submit-button-container">
         <div
           :class="[!validAddress ? 'disabled': '' ,'submit-button large-round-button-green-filled']"
@@ -107,7 +77,6 @@
 
 <script>
 import InterfaceBottomText from '@/components/InterfaceBottomText';
-import TxSpeedInput from '../../components/TxSpeedInput';
 import CurrencyPicker from '../CurrencyPicker';
 import SignedTxModal from '../../components/SignedTxModal';
 import Blockie from '@/components/Blockie';
@@ -120,7 +89,6 @@ import Constants from 'bitcore-wallet-client/lib/common/constants'
 export default {
   components: {
     'interface-bottom-text': InterfaceBottomText,
-    'tx-speed-input': TxSpeedInput,
     blockie: Blockie,
     'signed-tx-modal': SignedTxModal,
     'currency-picker': CurrencyPicker

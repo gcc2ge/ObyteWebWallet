@@ -30,21 +30,6 @@
           </div>
         </div>
       </div>
-      <!--<tx-speed-input
-        v-show="moreInfoGenerated"
-        :nonce="nonce"
-        :gas-limit="gasLimit"
-        @gasLimitUpdate="gasLimitUpdated"
-        @nonceUpdate="nonceUpdated"/>
-      <div
-        v-if="!moreInfoGenerated"
-        class="submit-button-container">
-        <div
-          class="submit-button large-round-button-green-filled clickable"
-          @click="generateInfo">
-          Generate
-        </div>
-      </div>-->
 
       <div
         v-if="moreInfoGenerated"
@@ -65,11 +50,9 @@
 
 <script>
 import InterfaceBottomText from '@/components/InterfaceBottomText';
-import TxSpeedInput from '../../components/TxSpeedInput';
 export default {
   components: {
     'interface-bottom-text': InterfaceBottomText,
-    'tx-speed-input': TxSpeedInput
   },
   props: {
     gasLimit: {

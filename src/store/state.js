@@ -1,6 +1,5 @@
 import nodeList from '@/networks';
 const state = {
-  // web3: {},
   client:{},
   network: {
     auth: false,
@@ -30,8 +29,6 @@ const state = {
   online: true,
   customPaths: {},
   notifications: {},
-  // gasPrice: 41,
-  // ens: {}
 };
 
 export default state;
