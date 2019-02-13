@@ -1,13 +1,13 @@
 **/.DS_Store
 node_modules/
 /dist/
-/dist.zip
+dist.zip
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 /tests/unit/coverage/
 selenium-debug.log
-/push.sh
+push.sh
 
 # Editor directories and files
 .idea
