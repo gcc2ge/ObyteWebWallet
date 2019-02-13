@@ -1,7 +1,7 @@
 {
-  "name": "myetherwallet",
-  "version": "5.0.4",
-  "description": "Client side ethereum wallet",
+  "name": "byteballwallet",
+  "version": "1.0.0",
+  "description": "Client side byteball wallet",
   "scripts": {
     "dev": "vue-cli-service serve",
     "start": "npm run dev",
@@ -35,9 +35,6 @@
     "wif": "^2.0.6"
   },
   "devDependencies": {
-    "@ledgerhq/hw-app-eth": "^4.23.0",
-    "@ledgerhq/hw-transport-u2f": "^4.21.0",
-    "@myetherwallet/mewconnect-web-client": "^1.0.9",
     "@vue/cli-plugin-babel": "^3.0.4",
     "@vue/cli-plugin-eslint": "^3.0.4",
     "@vue/cli-plugin-unit-jest": "^3.0.4",
