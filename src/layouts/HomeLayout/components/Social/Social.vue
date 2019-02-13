@@ -37,7 +37,7 @@ export default {
       links: [
         {
           img: discord,
-          to: 'https://discord.gg/nQDrBY',
+          to: 'http://discord.obyte.org',
           name: 'discord'
         },
         {
