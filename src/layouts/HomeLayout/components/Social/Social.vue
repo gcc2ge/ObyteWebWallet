@@ -29,11 +29,17 @@
 import github from '@/assets/images/icons/github.png';
 import reddit from '@/assets/images/icons/reddit.svg';
 import slack from '@/assets/images/icons/slack.png';
+import discord from '@/assets/images/icons/discord.png';
 
 export default {
   data() {
     return {
       links: [
+        {
+          img: discord,
+          to: 'https://discord.gg/nQDrBY',
+          name: 'discord'
+        },
         {
           img: slack,
           to: 'https://obyte.slack.com/',
@@ -46,7 +52,7 @@ export default {
         },
         {
           img: github,
-          to: 'https://github.com/byteball',
+          to: 'https://github.com/gcc2ge/obyteWebWallet/',
           name: 'github'
         }
       ]
