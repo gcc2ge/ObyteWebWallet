@@ -57,7 +57,7 @@ export default class Web3WalletAdapter {
   }
 
   wif(){
-    return Utils.Wif(this.wallet.getPrivateKey().derive('m/0/0'));
+    return Utils.Wif(this.wallet.getPrivateKey());
   }
 
   // ============== (End) byteball-wallet interface methods ======================

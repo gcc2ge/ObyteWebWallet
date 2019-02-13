@@ -1,4 +1,3 @@
-import * as unit from 'ethjs-unit';
 
 export default function web3OverrideMew(client,
                                         wallet,
