@@ -17,7 +17,7 @@ import PopOver from '@/components/PopOver';
 
 // Import Directives
 import ClickOutside from '@/directives/ClickOutside';
-import EnsResolver from '@/directives/EnsResolver';
+// import EnsResolver from '@/directives/EnsResolver';
 // etc
 import languages from './translations';
 

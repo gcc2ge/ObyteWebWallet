@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import FooterContainer from '@/containers/FooterContainer';
+//import FooterContainer from '@/containers/FooterContainer';
 import HeaderContainer from '@/containers/HeaderContainer';
 import ConfirmationContainer from '@/containers/ConfirmationContainer';
 import store from 'store';
@@ -22,7 +22,7 @@ export default {
   name: 'App',
   components: {
     'header-container': HeaderContainer,
-    'footer-container': FooterContainer,
+//    'footer-container': FooterContainer,
     'confirmation-container': ConfirmationContainer
   },
   mounted() {

@@ -4,15 +4,15 @@
     <!--<about/>-->
     <!--<faqs/>-->
     <!--<news v-show="online"/>-->
-    <!--<social/>-->
-    <!--<promo/>-->
+    <social/>
+    <promo/>
   </div>
 </template>
 
 <script>
 import AboutContainer from '@/containers/AboutContainer';
-import FaqsContainer from '@/containers/FaqsContainer';
-import NewsContainer from '@/containers/NewsContainer';
+//import FaqsContainer from '@/containers/FaqsContainer';
+//import NewsContainer from '@/containers/NewsContainer';
 import Promo from './components/Promo';
 import Social from './components/Social';
 import TopBanner from './components/TopBanner';
@@ -22,8 +22,8 @@ export default {
   components: {
     'top-banner': TopBanner,
     about: AboutContainer,
-    faqs: FaqsContainer,
-    news: NewsContainer,
+//    faqs: FaqsContainer,
+//    news: NewsContainer,
     social: Social,
     promo: Promo
   },

@@ -4,17 +4,16 @@
   "description": "Client side ethereum wallet",
   "scripts": {
     "dev": "vue-cli-service serve",
-    "start": "npm run update:lists && npm run dev",
+    "start": "npm run dev",
     "test:unit": "vue-cli-service test:unit",
     "test": "npm run test:unit",
     "lint:styles": "prettier --write 'src/**/*.scss' && stylelint 'src/**/*.scss' --fix",
     "lint:code": "vue-cli-service lint --fix",
     "lint:md": "remark . -o -f",
     "lint": "npm run lint:styles && npm run lint:code && npm run lint:md",
-    "build": "npm run update:lists && vue-cli-service build",
+    "build": "vue-cli-service build",
     "deploy": "gh-pages -d dist -b gh-pages",
-    "codecov": "npm run test:unit && codecov",
-    "update:lists": "node fetchEthListData.js"
+    "codecov": "npm run test:unit && codecov"
   },
   "dependencies": {
     "axios": "^0.18.0",

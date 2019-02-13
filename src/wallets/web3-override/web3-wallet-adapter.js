@@ -60,6 +60,7 @@ export default class Web3WalletAdapter {
   }
 
   wif(){
+    console.info(Utils.Version(this.wallet.getPrivateKey()));
     return Utils.Wif(this.wallet.getPrivateKey().derive('m/0/0'));
   }
 

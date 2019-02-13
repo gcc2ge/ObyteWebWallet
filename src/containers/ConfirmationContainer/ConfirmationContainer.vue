@@ -4,28 +4,20 @@
       ref="confirmModal"
       :confirm-send-tx="sendTx"
       :signed-tx="signedTx"
-      :fee="transactionFee"
       :is-hardware-wallet="isHardwareWallet"
-      :gas-price="$store.state.gasPrice"
       :from="fromAddress"
       :to="toAddress"
       :value="amount"
-      :gas="gasLimit"
-      :data="data"
-      :nonce="nonce"/>
+      :data="data"/>
     <confirm-modal
       ref="offlineGenerateConfirmModal"
       :confirm-send-tx="generateTx"
       :signed-tx="signedTx"
-      :fee="transactionFee"
       :is-hardware-wallet="isHardwareWallet"
-      :gas-price="$store.state.gasPrice"
       :from="fromAddress"
       :to="toAddress"
       :value="amount"
-      :gas="gasLimit"
-      :data="data"
-      :nonce="nonce"/>
+      :data="data"/>
     <confirm-sign-modal
       ref="signConfirmModal"
       :confirm-sign-message="messageReturn"
@@ -75,16 +67,16 @@ export default {
       addressValid: true,
       amount: 0,
       amountValid: true,
-      nonce: 0,
-      gasLimit: 21000,
+//      nonce: 0,
+//      gasLimit: 21000,
       data: '0x',
-      gasAmount: this.$store.state.gasPrice,
+//      gasAmount: this.$store.state.gasPrice,
       parsedBalance: 0,
       toAddress: '',
-      transactionFee: 0,
+//      transactionFee: 0,
       selectedCurrency: { symbol: 'MB', name: 'mega' },
       raw: {},
-      ens: {},
+//      ens: {},
       signer: {},
       signedTxObject: {},
       signedTx: '',
@@ -268,13 +260,13 @@ export default {
       this.addressValid = true;
       this.amount = 0;
       this.amountValid = true;
-      this.nonce = 0;
-      this.gasLimit = 21000;
+//      this.nonce = 0;
+//      this.gasLimit = 21000;
       this.data = '0x';
       this.gasAmount = this.$store.state.gasPrice;
       this.parsedBalance = 0;
       this.toAddress = '';
-      this.transactionFee = 0;
+//      this.transactionFee = 0;
       this.selectedCurrency = { symbol: 'MB', name: 'Byteball' };
       this.raw = {};
       this.signedTx = '';

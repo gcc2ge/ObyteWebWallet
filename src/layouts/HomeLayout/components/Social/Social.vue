@@ -36,17 +36,17 @@ export default {
       links: [
         {
           img: slack,
-          to: 'https://www.google.com',
+          to: 'https://obyte.slack.com/',
           name: 'slack'
         },
         {
           img: reddit,
-          to: 'https://www.reddit.com/r/myetherwallet',
+          to: 'https://www.reddit.com/r/ByteBall/',
           name: 'reddit'
         },
         {
           img: github,
-          to: 'https://www.github.com/myetherwallet',
+          to: 'https://github.com/byteball',
           name: 'github'
         }
       ]

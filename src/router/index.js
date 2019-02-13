@@ -3,12 +3,12 @@ import Router from 'vue-router';
 import HomeLayout from '@/layouts/HomeLayout';
 import CreateWalletLayout from '@/layouts/CreateWalletLayout';
 import ConvertUnits from '@/layouts/ConvertUnits';
-import TeamLayout from '@/layouts/TeamLayout';
+// import TeamLayout from '@/layouts/TeamLayout';
 import PrivacyPolicyLayout from '@/layouts/PrivacyPolicyLayout';
 import TermsAndConditionsLayout from '@/layouts/TermsAndConditionsLayout';
 import AccessWalletLayout from '@/layouts/AccessWalletLayout';
 import InterfaceLayout from '@/layouts/InterfaceLayout';
-import HelpCenterLayout from '@/layouts/HelpCenterLayout';
+// import HelpCenterLayout from '@/layouts/HelpCenterLayout';
 import NotFoundLayout from '@/layouts/NotFoundLayout';
 import GettingStarted from '@/layouts/GettingStarted';
 
@@ -17,7 +17,7 @@ import DeployContractContainer from '@/layouts/InterfaceLayout/containers/Deploy
 import InteractWithContractContainer from '@/layouts/InterfaceLayout/containers/InteractWithContractContainer';
 import SendCurrencyContainer from '@/layouts/InterfaceLayout/containers/SendCurrencyContainer';
 import SendOfflineContainer from '@/layouts/InterfaceLayout/containers/SendOfflineContainer';
-import SwapContainer from '@/layouts/InterfaceLayout/containers/SwapContainer';
+// import SwapContainer from '@/layouts/InterfaceLayout/containers/SwapContainer';
 import SignMessageContainer from '@/layouts/InterfaceLayout/containers/SignMessageContainer';
 import VerifyMessageContainer from '@/layouts/InterfaceLayout/containers/VerifyMessageContainer';
 
@@ -37,11 +37,11 @@ const router = [
     name: 'CreateWalletLayout',
     component: CreateWalletLayout
   },
-  {
-    path: '/team',
-    name: 'TeamLayout',
-    component: TeamLayout
-  },
+  // {
+  //   path: '/team',
+  //   name: 'TeamLayout',
+  //   component: TeamLayout
+  // },
   {
     path: '/privacy-policy',
     name: 'PrivacyPolicyLayout',
@@ -57,11 +57,11 @@ const router = [
     name: 'AccessWalletLayout',
     component: AccessWalletLayout
   },
-  {
-    path: '/help-center',
-    name: 'HelpCenterLayout',
-    component: HelpCenterLayout
-  },
+  // {
+  //   path: '/help-center',
+  //   name: 'HelpCenterLayout',
+  //   component: HelpCenterLayout
+  // },
   {
     path: '/convert-units',
     name: 'ConvertUnits',
@@ -111,11 +111,11 @@ const router = [
         name: 'Send Offline',
         component: SendOfflineContainer
       },
-      {
-        path: 'swap',
-        name: 'Swap',
-        component: SwapContainer
-      },
+      // {
+      //   path: 'swap',
+      //   name: 'Swap',
+      //   component: SwapContainer
+      // },
       {
         path: 'sign-message',
         name: 'Sign Message',

@@ -1,4 +1,4 @@
-import registerDomainRoutes from './RegisterDomain/routes';
+// import registerDomainRoutes from './RegisterDomain/routes';
 import domainSaleRoutes from './DomainSaleContainer/routes';
 import p2pSportsBetting from './P2PSportsBetting/routes';
 import blackbyteTrade from './BlackbyteTrade/routes';
@@ -9,7 +9,7 @@ import unstoppableData from './UnstoppableData/routes';
 import whiteLittle from './WhiteLittle/routes';
 
 const routes = {
-  registerDomain: registerDomainRoutes,
+  // registerDomain: registerDomainRoutes,
   domainSale: domainSaleRoutes,
   p2pSportsBetting: p2pSportsBetting,
 

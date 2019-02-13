@@ -1,5 +1,5 @@
-import tokens from '@/tokens/tokens-akroma.json';
-import contracts from '@/contracts/contract-abi-akroma.json';
+// import tokens from '@/tokens/tokens-akroma.json';
+// import contracts from '@/contracts/contract-abi-akroma.json';
 import esn from '@/assets/images/networks/esn.svg';
 // import { EthAbi } from '../ensAbis';
 
