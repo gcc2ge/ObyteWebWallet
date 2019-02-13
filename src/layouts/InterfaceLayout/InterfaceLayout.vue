@@ -110,8 +110,8 @@
     methods: {
       getBlock() {
         const client = this.$store.state.client;
-        var self=this;
-        client.api.getLastMci(function(err, result) {
+        var self = this;
+        client.api.getLastMci(function (err, result) {
           self.blockNumber = result;
         });
         /*this.$store.state.web3.eth
@@ -126,17 +126,21 @@
       },
       getBalance() {
         const client = this.$store.state.client;
-        var self=this;
-        const address=this.address;
-        var arr=[address];
+        var self = this;
+        const address = this.address;
+        var arr = [address];
 
         client.api.getBalances(arr, function (err, result) {
 //          console.info(`err ${JSON.stringify(err)}`)
 //          console.info(`result ${JSON.stringify(result)}`)
-          if (result){
-            self.balance = Utils.formatAmount(result[address].base.stable,"mega");
+          if (result) {
+            var stable_Balance = result[address].base.stable;
+//            var pending_Balance = result[address].base.pending;
+            var pending_Balance = 0;
+            var balance = pending_Balance + stable_Balance;
+            self.balance = Utils.formatAmount(balance, "mega");
             self.$store.dispatch('setAccountBalance', self.balance);
-          }else{
+          } else {
             self.balance = self.$store.state.account.balance;
 //            console.info(`error ${JSON.stringify(err)}`);
           }
@@ -187,24 +191,24 @@
           });
         }, 500);
       },*/
-     /* matchWeb3WalletNetwork() {
-        this.pollNetwork = setInterval(() => {
-          window.web3.version.getNetwork((err, netId) => {
-            if (err) return;
-            if (this.$store.state.network.type.chainID.toString() !== netId) {
-              Object.keys(networkTypes).forEach(net => {
-                if (networkTypes[net].chainID.toString() === netId) {
-                  this.$store.dispatch(
-                    'switchNetwork',
-                    this.$store.state.Networks[net][0]
-                  );
-                  clearInterval(this.pollNetwork);
-                }
-              });
-            }
-          });
-        }, 500);
-      },*/
+      /* matchWeb3WalletNetwork() {
+         this.pollNetwork = setInterval(() => {
+           window.web3.version.getNetwork((err, netId) => {
+             if (err) return;
+             if (this.$store.state.network.type.chainID.toString() !== netId) {
+               Object.keys(networkTypes).forEach(net => {
+                 if (networkTypes[net].chainID.toString() === netId) {
+                   this.$store.dispatch(
+                     'switchNetwork',
+                     this.$store.state.Networks[net][0]
+                   );
+                   clearInterval(this.pollNetwork);
+                 }
+               });
+             }
+           });
+         }, 500);
+       },*/
       clearIntervals() {
         const self = this;
         if (self.wallet === null) {

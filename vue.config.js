@@ -1,7 +1,7 @@
 const Dotenv = require('dotenv-webpack');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const webpack = require('webpack');
-const { UnusedFilesWebpackPlugin } = require('unused-files-webpack-plugin');
+// const { UnusedFilesWebpackPlugin } = require('unused-files-webpack-plugin');
 const webpackConfig = {
   node: {
     process: true
@@ -28,9 +28,9 @@ const webpackConfig = {
   ]
 };
 if (process.env.NODE_ENV === 'production') {
-  webpackConfig.plugins.push(new UnusedFilesWebpackPlugin({
-      patterns: ['src/**/*.*'],
-      failOnUnused: true,
+ /* webpackConfig.plugins.push(new UnusedFilesWebpackPlugin({
+      patterns: ['src/!**!/!*.*'],
+      failOnUnused: false,
       globOptions: {
         ignore: [
           'src/assets/images/flags/countries.json',
@@ -41,15 +41,16 @@ if (process.env.NODE_ENV === 'production') {
           'src/wallets/hardware/deterministicWalletPaths.js'
         ]
       }
-    }));
+    }));*/
 }
 module.exports = {
   baseUrl: './',
   configureWebpack: webpackConfig,
   chainWebpack: config => {
     config.module
-      .rule('eslint')
-      .use('eslint-loader')
-      .options({ fix: true });
-  }
+      // .rule('eslint')
+      // .use('eslint-loader')
+      // .options({ fix: false });
+  },
+  lintOnSave: false
 };

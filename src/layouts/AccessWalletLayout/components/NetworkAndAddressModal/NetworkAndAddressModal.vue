@@ -373,7 +373,10 @@
 //            console.info(`err ${JSON.stringify(err)} result ${JSON.stringify(result)}`)
             if (err || result=={}) {resolve(0)}
             else{
-              var balance = result[address].base.stable;
+              var stable_Balance = result[address].base.stable;
+//              var pending_Balance = result[address].base.pending;
+              var pending_Balance = 0;
+              var balance = pending_Balance + stable_Balance;
               resolve(balance);
             }
           });
