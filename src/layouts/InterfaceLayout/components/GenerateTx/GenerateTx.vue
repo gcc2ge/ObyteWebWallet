@@ -81,8 +81,8 @@ import CurrencyPicker from '../CurrencyPicker';
 import SignedTxModal from '../../components/SignedTxModal';
 import Blockie from '@/components/Blockie';
 // eslint-disable-next-line
-import Utils from 'bitcore-wallet-client/lib/common/utils'
-import Constants from 'bitcore-wallet-client/lib/common/constants'
+import Utils from 'bbwallet/bitcore-wallet-client/lib/common/utils'
+import Constants from 'bbwallet/bitcore-wallet-client/lib/common/constants'
 
 export default {
   components: {

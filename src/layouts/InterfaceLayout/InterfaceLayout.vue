@@ -32,7 +32,7 @@
 <script>
   import {mapGetters} from 'vuex';
   import {parseTokensHex} from '@/helpers';
-  import Utils from 'bitcore-wallet-client/lib/common/utils'
+  import Utils from 'bbwallet/bitcore-wallet-client/lib/common/utils'
 
   import WalletNotFoundContainer from './containers/WalletNotFoundContainer';
 

@@ -41,8 +41,8 @@ import iconUsd from '@/assets/images/currency/usd.svg';
 import iconCny from '@/assets/images/currency/cny.svg';
 
 import axios from 'axios';
-import Utils from 'bitcore-wallet-client/lib/common/utils'
-import Constants from 'bitcore-wallet-client/lib/common/constants'
+import Utils from 'bbwallet/bitcore-wallet-client/lib/common/utils'
+import Constants from 'bbwallet/bitcore-wallet-client/lib/common/constants'
 
 export default {
   props: {

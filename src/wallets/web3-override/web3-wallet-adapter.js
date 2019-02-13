@@ -1,4 +1,4 @@
-import * as Utils from 'bbwallet/utils';
+import * as Utils from 'bbwallet/lib/utils';
 
 export default class Web3WalletAdapter {
   constructor(wallet) {

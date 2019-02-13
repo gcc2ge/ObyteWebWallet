@@ -1,5 +1,5 @@
 
-import  ByteBallWallet from 'bbwallet/wallet'
+import  ByteBallWallet from 'bbwallet/lib/wallet'
 
 
 export default class BasicWallet {

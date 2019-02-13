@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import Utils from 'bitcore-wallet-client/lib/common/utils'
+import Utils from 'bbwallet/bitcore-wallet-client/lib/common/utils'
 export default {
   props: {
     address: {

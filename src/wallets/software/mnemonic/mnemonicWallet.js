@@ -1,7 +1,7 @@
 import HardwareWalletInterface from './hardwareWallet-interface';
 import {getDerivationPath, paths} from './deterministicWalletPaths';
 
-import * as Utils from 'bbwallet/utils'
+import * as Utils from 'bbwallet/lib/utils'
 import BB_Mnemonic from 'bitcore-mnemonic'
 
 let phrase = '';

@@ -140,8 +140,8 @@
 
 <script>
   import CustomerSupport from '@/components/CustomerSupport';
-  import Utils from 'bitcore-wallet-client/lib/common/utils'
-  import ByteBallWallet from 'bbwallet/wallet';
+  import Utils from 'bbwallet/bitcore-wallet-client/lib/common/utils'
+  import ByteBallWallet from 'bbwallet/lib/wallet';
   import url from 'url';
   import byteball from 'byteball';
 
