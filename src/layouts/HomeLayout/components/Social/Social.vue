@@ -47,7 +47,7 @@ export default {
         },
         {
           img: reddit,
-          to: 'https://www.reddit.com/r/ByteBall/',
+          to: 'https://www.reddit.com/r/obyte/',
           name: 'reddit'
         },
         {
