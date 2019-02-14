@@ -1,13 +1,13 @@
 {
-  "title1": "Byteball's",
-  "title2": "Original Wallet",
-  "subheading": "This site helps you to create Byteball wallet and interact with it easily and securely, this web wallet of Byteball is a free and open-source, client-side interface.",
-  "obtainAddress": "To obtain Byteball address and generate your private key. Saving and safekeeping the key will be your responsibility.",
+  "title1": "Obyte's",
+  "title2": "Web Wallet",
+  "subheading": "This site helps you to create Obyte wallet and interact with it easily and securely, this web wallet of Obyte is a free and open-source, client-side interface.",
+  "obtainAddress": "To obtain Obyte address and generate your private key. Saving and safekeeping the key will be your responsibility.",
   "getStarted": "Get Started",
-  "accessMyWalletDesc": "To send byteball coins, deploy the contract after you access your wallet.",
+  "accessMyWalletDesc": "To send Obyte coins, deploy the contract after you access your wallet.",
   "accessNow": "Access Now",
   "aboutTitle": "About MBW",
-  "aboutSubheading": "MyByteballWallet - please, call us MBW - puts the Ethereum blockchain at your fingertips. We are a team of crypto enthusiasts dedicated to bring you the most secure, most intuitive, and dare we say prettiest way to manage your ETH and ERC-20 tokens. We're always here to help, and we're never giving away ETH. Cheers!",
+  "aboutSubheading": "MyObyteWallet - please, call us MBW - puts the Ethereum blockchain at your fingertips. We are a team of crypto enthusiasts dedicated to bring you the most secure, most intuitive, and dare we say prettiest way to manage your ETH and ERC-20 tokens. We're always here to help, and we're never giving away ETH. Cheers!",
   "aboutBeResponsible": "Please Take Responsible For Your Account Security.",
   "aboutWatchVideo": "Watch Video",
   "aboutMewWallet": "MBW Wallet",
@@ -22,7 +22,7 @@
   "faqsSecurityAndPhishing": "Security And Phishing",
   "faqsTransactions": "Transactions",
   "faqsPrivKeyandPass": "Private Keys And Passwords",
-  "socialTitle": "Join Byteball Conversation",
+  "socialTitle": "Join Obyte Conversation",
   "socialSubheading": "Get in now and see your balance grow (we hope)!",
-  "promoTitle": "Byteball's Website Wallet"
+  "promoTitle": "Obyte's Website Wallet"
 }

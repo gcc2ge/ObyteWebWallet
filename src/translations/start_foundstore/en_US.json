@@ -1,8 +1,8 @@
 {
-  "about": "About ByteballWallet",
+  "about": "About ObyteWallet",
   "title": "Where are my funds stored?",
-  "content": "Your tokens and coins are not on ByteballWallet. Just like  they aren't on your hardware wallet, on MetaMask, or on  blockchain explorers. All funds on the blockchain itself.  This means that we do not control them. We are only a doorway  to interact with them.",
-  "warning": "WARNING: ByteballWallet Does Not Control Your Funds. You Do!",
+  "content": "Your tokens and coins are not on ObyteWallet. Just like  they aren't on your hardware wallet, on MetaMask, or on  blockchain explorers. All funds on the blockchain itself.  This means that we do not control them. We are only a doorway  to interact with them.",
+  "warning": "WARNING: ObyteWallet Does Not Control Your Funds. You Do!",
   "blockchain_title": "What is Blockchain?",
   "blockchain_content_1": "The term 'blockchain' refers to a public, decentalized spreadsheet, similar to a ledger.  It's maintained by people all over the world, who remotely mine  transaction to make them a park of the blockchain, permanently.",
   "blockchain_content_2": "When you use MEW, you are accessing the blockchain directly. We are not responsible  for theft caused by user error. Please do your research, knowledge is power! Know  more about Blockchain"

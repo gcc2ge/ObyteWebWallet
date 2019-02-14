@@ -1,5 +1,5 @@
 {
-  "title": "Welcome to Byteball web wallet",
+  "title": "Welcome to Obyte web wallet",
   "subheading": "We don't hold your keys for you. We can’t access accounts, recover keys, reset passwords, nor reverse transactions. Protect your keys & always check that you are on CORRECT URL. You are responsible for your security.",
   "firstTime": "I'm a Fresher",
   "veteran": "I'm Experienced",
@@ -23,7 +23,7 @@
   "byJsonFileMakeBackupDesc": "Secure it like the millions of dollars it may one day be worth.",
   "byJsonFileDownloadKeyFile": "Download Keystore File",
   "pageTitleAlreadyHave": "Already have a wallet?",
-  "pageFooterTitle": "Learn more about Blockchain or Byteball? Please go to",
+  "pageFooterTitle": "Learn more about Blockchain or Obyte? Please go to",
   "availableAppleGoogleStores": "Our App is Available On the App Store and Google Play",
   "scanToDownload": "Scan to Download",
   "iosVersions": "iOS 9.0 or up0",

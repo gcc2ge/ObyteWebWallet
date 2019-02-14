@@ -1,7 +1,7 @@
 {
-  "name": "byteballwallet",
+  "name": "Obytewallet",
   "version": "1.0.0",
-  "description": "Client side byteball wallet",
+  "description": "Client side Obyte wallet",
   "scripts": {
     "dev": "vue-cli-service serve",
     "start": "npm run dev",

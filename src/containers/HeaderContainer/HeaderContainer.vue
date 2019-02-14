@@ -21,7 +21,7 @@
                 <img
                   :class="isPageOnTop == false ? 'logo-small' : ''"
                   class="logo-large"
-                  src="~@/assets/images/bbfans_banner-1.png">
+                  src="~@/assets/images/obyte.png">
               </div>
             </router-link>
             <div class="top-menu">

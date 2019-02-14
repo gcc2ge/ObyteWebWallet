@@ -1,7 +1,7 @@
 {
-  "about": "About ByteballWallet",
-  "title": "什么是Byteball钱包？",
-  "content": "Byteball钱包是一款免费，开源，客户端交互使用界面。",
-  "content_1": "Byteball钱包不是一个银行或交易所，我们是一个交互使用界面。 这意味着我们不会保留您的密钥或信息，但这也意味着我们无法访问帐户，恢复密钥，重置密码或撤消交易。",
-  "warning": "警告：ByteballWallet无法控制您的资金。 是由你控制！"
+  "about": "About ObyteWallet",
+  "title": "什么是Obyte钱包？",
+  "content": "Obyte钱包是一款免费，开源，客户端交互使用界面。",
+  "content_1": "Obyte钱包不是一个银行或交易所，我们是一个交互使用界面。 这意味着我们不会保留您的密钥或信息，但这也意味着我们无法访问帐户，恢复密钥，重置密码或撤消交易。",
+  "warning": "警告：ObyteWallet无法控制您的资金。 是由你控制！"
 }
