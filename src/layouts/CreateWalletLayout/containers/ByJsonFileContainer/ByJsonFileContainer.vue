@@ -72,6 +72,8 @@ import noShare from '@/assets/images/icons/no-share.svg';
 import makeBackup from '@/assets/images/icons/make-a-backup.svg';
 import Worker from 'worker-loader!@/workers/wallet.worker.js';
 
+import { Wallet } from '@/helpers';
+
 export default {
   components: {
     'by-json-block': ByJsonBlock,
@@ -108,25 +110,25 @@ export default {
     };
   },
   mounted() {
-    const worker = new Worker();
-    worker.postMessage({ type: 'createWallet', data: [this.password] });
-    worker.onmessage = e => {
-      const createBlob = (mime, str) => {
-        const string = typeof str === 'object' ? JSON.stringify(str) : str;
-        if (string === null) return '';
-        const blob = new Blob([string], {
-          type: mime
-        });
-        this.downloadable = true;
-        return window.URL.createObjectURL(blob);
-      };
-      this.walletJson = createBlob('mime', e.data.walletJson);
-      this.name = e.data.name.toString();
+    const create =function(password) {
+      const createdWallet = {};
+      const wallet =  Wallet.generate();
+      createdWallet.walletJson = wallet.export(password);
+      createdWallet.name = wallet.getV3Filename();
+      return createdWallet;
     };
-    worker.onerror = function(e) {
-      // eslint-disable-next-line no-console
-      console.error(`onerror received from worker ${JSON.stringify(e)}`); // replace with debugger
+    const createBlob = (mime, str) => {
+      const string = typeof str === 'object' ? JSON.stringify(str) : str;
+      if (string === null) return '';
+      const blob = new Blob([string], {
+        type: mime
+      });
+      this.downloadable = true;
+      return window.URL.createObjectURL(blob);
     };
+    const workerResult = create(this.password);
+    this.walletJson = createBlob('mime', workerResult.walletJson);
+    this.name = workerResult.name.toString();
   },
   methods: {
     downloadDone() {
